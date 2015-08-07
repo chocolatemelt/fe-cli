@@ -4,10 +4,13 @@
 #include "feClass.h"
 
 int main() {
-  feClass r;
-  feCharacter test('i', "fuc", true, 'p', r);
+  feClass c;
+  feCharacter test('m', "My Unit", false, 'p', c);
   initscr();
-  printw("ncurses");
+  printw("hi");
+  refresh();
+  getch();
+  printw("hihi");
   refresh();
   getch();
   endwin();
