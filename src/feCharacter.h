@@ -71,6 +71,7 @@ class feCharacter {
 
   public:
     feCharacter(char id, std::string n, bool g, char l, feClass j);
+    void initStats();
 };
 
 #endif
