@@ -14,9 +14,9 @@ Folder Structure
 
 ```
 root
- \->docs  Documentation
- \->lib   Generic libraries
- \->src   Program source
+ |-> docs  Documentation
+ |-> lib   Generic libraries
+ |-> src   Program source
  README
  TODO
 ```
