@@ -9,8 +9,8 @@
 #include "feSkill.h"
 #include "feItem.h"
 
-typedef std::unordered_map< string, char > dict;
-typedef std::unordered_map< string, int > stats;
+typedef std::unordered_map< std::string, char > dict;
+typedef std::unordered_map< std::string, int > stats;
 
 class feCharacter {
   private:
@@ -35,7 +35,7 @@ class feCharacter {
     stats cap;         // capped maximum stats of the unit
     stats current;     // current stats of the unit
     stats bonus;       // bonus stats given to the unit
-    std::unordered_map< string, double > growth;    // stat growths of the unit
+    std::unordered_map< std::string, double > growth;    // stat growths of the unit
 
     /**
      * SKILLS
@@ -70,7 +70,7 @@ class feCharacter {
     bool mainPair;
 
   public:
-    feCharacter()
+    feCharacter(char id, std::string n, bool g, char l, feClass j);
 };
 
 #endif
