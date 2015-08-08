@@ -7,12 +7,16 @@ Read the docs for more information.
 build & install
 ---------------
 
-Make sure you have the latest ncurses library and CMake 2.8 or higher. I can't confirm whether or not this works on Cygwin for Windows.
+Make sure you have the latest ncurses library and CMake 2.8 or higher.
 ```
 $ cd fe-cli         # or whatever you named the root directory
 $ cmake .
 $ make
 ```
+
+It works on Windows! Proof:
+![Cygwin](http://i.imgur.com/0NQXCBe.png)
+As stated before, you only require the latest ncurses library from Cygwin sources and Cmake 2.8 or higher. [Babun](http://babun.github.io/) comes with ncurses so you can just run ```pact install cmake``` and you're good to go.
 
 contributing
 ------------
