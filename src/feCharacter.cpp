@@ -24,5 +24,18 @@ void feCharacter::initStats() {
   base.emplace("def", 0);
   base.emplace("res", 0);
   base.emplace("mov", 0);
-  // add other stat things here
+  
+  growth.emplace("str", 0);
+  growth.emplace("mag", 0);
+  growth.emplace("skl", 0);
+  growth.emplace("spd", 0);
+  growth.emplace("lck", 0);
+  growth.emplace("def", 0);
+  growth.emplace("res", 0);
+  growth.emplace("mov", 0);
+
+  // copy
+  cap = base;
+  current = base;
+  bonus = base;
 }
