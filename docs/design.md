@@ -23,25 +23,25 @@ Options will include things like changing colors but not much else (this is only
 Upon entering a map with a roster, the player is then presented with the Battle Screen. The battle screen is composed of two panels; an information panel (essentially the bottom screen of the DS) and the map panel (essentially the top screen of the DS). Below is an example of the information panel. Players can use ```tab``` to switch panels, like most paneled curses applications.
 
 ```
--------------------------------+
-Lucina (Olivia)                |
-Great Lord   | [P. Falchion]   |
-Lv20 | - exp | Ephraim's Lance |
-HP60 | 60    | Elixir 1/3      |
------------- | (none)          |
-STR 27 (+5)  | (none)          |
-MAG 21 (+1)  | --------------- |
-SKL 29 (+5)  | Galeforce       |
-SPD 31 (+4)  | Aether          |
-LCK 32       | Limit Breaker   |
-DEF 24 (+4)  | Dual Strike+    |
-RES 24       | Charm           |
-Sword A      |                 |
-Lance A      |                 |
--------------+-----------------+
-Something agrees with me today.|
-I must have at least twice my  |
-normal strength!               |
--------------------------------+
++--------------------------------+
+| Lucina (Olivia)                |
+| Great Lord   | [P. Falchion]   |
+| Lv20 | - exp | Ephraim's Lance |
+| HP60 | 60    | Elixir 1/3      |
+| ------------ | (none)          |
+| STR 27 (+5)  | (none)          |
+| MAG 21 (+1)  | --------------- |
+| SKL 29 (+5)  | Galeforce       |
+| SPD 31 (+4)  | Aether          |
+| LCK 32       | Limit Breaker   |
+| DEF 24 (+4)  | Dual Strike+    |
+| RES 24       | Charm           |
+| Sword A      |                 |
+| Lance A      |                 |
+| -------------+-----------------+
+| Something agrees with me       |
+| today. I must have at least    |
+| twice my normal strength!      |
++--------------------------------+
 ```
 In the map panel, background colors will differentiate between different tiles. Filled tiles are considered uncrossable terrain. When selecting a unit, blue signifies a potential movement option, red signifies potential attack options, and green signifies potential staff options. Other colors are in consideration for tiles that slope, "air" tiles, sparkling tiles, village tiles, and others.
