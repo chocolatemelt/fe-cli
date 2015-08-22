@@ -30,12 +30,17 @@ class feCharacter {
      * exposed variables and/or vast amounts of mutator/accessor
      * methods for each stat while also providing amortized
      * O(1) lookups.
+     * Base stats can be anything.
+     * Base caps modify the class caps. Reasonable numbers should
+     * be single digits (positive or negative).
+     * Growths modify the class growths. I'm not sure if this is how it actually works.
+     * Current does NOT include bonuses for easier outputting.
      */
     stats base;        // base stats of the unit
-    stats cap;         // capped maximum stats of the unit
-    stats current;     // current stats of the unit
+    stats cap;         // capped maximum stat modifiers
+    stats current;     // current stats of the unit (without bonuses)
     stats bonus;       // bonus stats given to the unit
-    std::unordered_map< std::string, double > growth;    // stat growths of the unit
+    std::unordered_map< std::string, double > growth;    // stat growth modifiers
 
     /**
      * SKILLS
