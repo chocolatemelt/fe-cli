@@ -6,7 +6,7 @@ include(CTest)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 # use C++ 11
-set(CMAKE_CXX_FLAGS "-std=c++11 -Ilib")
+set(CMAKE_CXX_FLAGS "-std=c++11 -Isrc/classes")
 
 # include curses
 find_package(Curses REQUIRED)
@@ -14,9 +14,9 @@ find_package(Curses REQUIRED)
 # include directories
 include_directories(
   ${CURSES_INCLUDE_DIR},
-  ${PROJECT_SOURCE_DIR}/lib
+  ${PROJECT_SOURCE_DIR}/src/includes
 )
-file(GLOB FE-CLI_SOURCES ${PROJECT_SOURCE_DIR}/lib/*.cpp)
+file(GLOB FE-CLI_SOURCES ${PROJECT_SOURCE_DIR}/src/classes/*.cpp)
 
 # create executables!
 add_executable(fe-cli ${PROJECT_SOURCE_DIR}/src/main.cpp ${FE-CLI_SOURCES})
