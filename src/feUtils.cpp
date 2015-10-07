@@ -11,7 +11,7 @@
  * Return: Nothing
  */
 void feUtils::setAttack(const std::vector<int>& character_stats) {
-    std::vector<int>::iterator itr = character_stats.begin();
+    std::vector<int>::const_iterator itr = character_stats.begin();
     for( ; itr != character_stats.end(); ++itr)
         attack += *itr;
 }
@@ -63,7 +63,7 @@ void feUtils::setAvoid(const std::vector<int>& character_stats) {
  * Return: Nothing
  */
 void feUtils::setRating(const std::vector<int>& character_stats) {
-    std::vector<int>::iterator itr = character_stats.begin();
+    std::vector<int>::const_iterator itr = character_stats.begin();
     for( ; itr != character_stats.end(); ++itr)
         rating += *itr;
 }

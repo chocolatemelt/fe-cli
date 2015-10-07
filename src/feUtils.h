@@ -14,7 +14,7 @@ class feUtils {
           rand.seed(time(NULL));
           attack = 0;
           hit_rate = 0;
-          critical = 0
+          critical = 0;
           avoid = 0;
           rating = 0;
       }
@@ -24,7 +24,7 @@ class feUtils {
           rand.seed(seed);
           attack = 0;
           hit_rate = 0;
-          critical = 0
+          critical = 0;
           avoid = 0;
           rating = 0;
       }
