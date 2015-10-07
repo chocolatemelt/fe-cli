@@ -37,3 +37,5 @@ install_manifest.txt
 
 # Project specific files
 bin
+DartConfiguration.tcl
+CTestTestfile.cmake
