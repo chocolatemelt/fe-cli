@@ -12,13 +12,13 @@ feRoster::feRoster(std::string n, std::vector<feCharacter> r) {
 /**
  * Adds a character to the roster.
  */
-feRoster::add(feCharacter c) {
-	r.push(c);
+void feRoster::add(feCharacter c) {
+	roster.push_back(c);
 }
 
 /**
  * Lists the characters in the roster.
  */
-feRoster::list() {
+void feRoster::list() {
 	/* implementation */
 }

@@ -12,8 +12,8 @@ class feRoster {
 	public: 
 		feRoster(std::string n);
 		feRoster(std::string n, std::vector<feCharacter> r);
-		add(feCharacter c);
-		list();
+		void add(feCharacter c);
+		void list();
 };
 
 #endif
