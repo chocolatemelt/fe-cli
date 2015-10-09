@@ -26,3 +26,9 @@ target_link_libraries(fe-test ${CURSES_LIBRARIES})
 
 # tests!
 enable_testing()
+add_test(NAME UnitTests COMMAND fe-test)
+set_tests_properties(
+	UnitTests
+	PROPERTIES
+	PASS_REGULAR_EXPRESSION "1*"
+)
