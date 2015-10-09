@@ -33,6 +33,7 @@ class feClass {
 
   public:
     feClass();
+    std::string class_name();
 };
 
 #endif

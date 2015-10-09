@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <string>
 #include <vector>
+#include <sstream>
 
 #include "feClass.h"
 #include "feSkill.h"
@@ -86,6 +87,7 @@ class feCharacter {
      */
     feCharacter(char id, std::string n, bool g, char l, feClass j);
     void initStats();
+    std::string printInfo();
 };
 
 #endif

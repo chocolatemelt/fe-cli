@@ -39,3 +39,24 @@ void feCharacter::initStats() {
   current = base;
   bonus = base;
 }
+
+std::string feCharacter::printInfo() {
+
+  std::stringstream ss;
+  std::string id;
+  ss << uniqID;
+  ss >> id;
+
+  std::stringstream ll;
+  std::string loy;
+  ll << loyalty;
+  ll >> loy;
+
+  std::string g;
+  if (gender == 0) g = "female";
+  if (gender == 1) g = "male";
+
+
+
+  return id + name + g + loy; 
+}
