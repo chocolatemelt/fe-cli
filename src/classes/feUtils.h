@@ -29,6 +29,8 @@ class feUtils {
           rating = 0;
       }
 
+      int feRNG();
+
       // For now keeping combat algorithms here - might need to move
       // Observers
       // Returns the final value with all bonuses or debuffs included
@@ -40,7 +42,7 @@ class feUtils {
 
       // Mutators
       void setAttack(const std::vector<int>& character_stats);
-      void setHitRate(const std::vector<int>& weapon_stats);
+      void setHitRate(const std::vector<int>& weapon_stats, const char rank, const int buffOrDebuff);
       void setCritical(const std::vector<int>& character_stats);
       void setAvoid(const std::vector<int>& character_stats);
       void setRating(const std::vector<int>& character_stats);
@@ -56,7 +58,7 @@ class feUtils {
 
       // Mutators
       void weaponTriangle(const char rank, const int buffOrDebuff);
-      void weaponRankBonus(const char rank, const & std::string weapon_type);
+      //void weaponRankBonus(const char rank, const & std::string weapon_type);
 };
 
 #endif

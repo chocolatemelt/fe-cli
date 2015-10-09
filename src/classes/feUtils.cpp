@@ -3,6 +3,14 @@
 #include <cmath>
 
 /**
+ * Return: Random number from 0 to 99.
+ */
+int feUtils::feRNG() {
+    static std::uniform_int_distribution<int> rng(0, 99);
+    return rng(rand);
+}
+
+/**
  * Parameters:
  *    character_stats: vector of ints containing
  *    values of the necessary character/weapon stats needed
@@ -112,7 +120,7 @@ void feUtils::resetCombatStats() {
  * calling that method because it needs to be reset anyways.  That
  * way can avoid having to reset everything at once.
  */
-int weaponTriangle(const char rank, const int buffOrDebuff) {
+void feUtils::weaponTriangle(const char rank, const int buffOrDebuff) {
     // Buff
     if(buffOrDebuff == 1) {
         if(rank == 'E' || rank == 'D') 
@@ -139,7 +147,7 @@ int weaponTriangle(const char rank, const int buffOrDebuff) {
         else if(rank == 'B')
         {
             hit_rate -= 10;
-            attack +-= 1;
+            attack += 1;
         }
         else if(rank == 'A')
         {
