@@ -36,11 +36,15 @@ class feCharacter {
      * Growths modify the class growths. I'm not sure if this is how it actually works.
      * Current does NOT include bonuses for easier outputting.
      */
+    int current_lvl;   // Level of character
+    int internal_lvl;  // Total number of levels overall
     stats base;        // base stats of the unit
     stats cap;         // capped maximum stat modifiers
     stats current;     // current stats of the unit (without bonuses)
     stats bonus;       // bonus stats given to the unit
-    std::unordered_map< std::string, double > growth;    // stat growth modifiers
+    std::unordered_map< std::string, double > growth;    // stat growths of the unit
+    int current_experience;     // Current amount of experience till leveling up
+    stats weapon_experience;    // Current amount of experience for each weapon type till leveling up
 
     /**
      * SKILLS
@@ -56,7 +60,7 @@ class feCharacter {
      * Items - including weapons - are also stored in a vector. The vector
      * size should always be within 0 and 5.
      * The equipped weapon is just a pointer to an item in the vector.
-     * Note that convoy items are stored in the feRoster object, and 
+     * Note that convoy items are stored in the feRoster object, and
      * not on any characters.
      */
     std::vector< feItem > bag;
@@ -75,6 +79,11 @@ class feCharacter {
     bool mainPair;
 
   public:
+    /**
+     * Instead of making an feClass that just returns a character
+     * Just have feCharacter extend from feClass and then implement any necessary
+     * details.
+     */
     feCharacter(char id, std::string n, bool g, char l, feClass j);
     void initStats();
 };
