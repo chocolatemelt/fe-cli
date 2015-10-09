@@ -35,7 +35,10 @@ Makefile
 cmake_install.cmake
 install_manifest.txt
 
-# Project specific files
-bin
+# Ctest
+Testing
 DartConfiguration.tcl
 CTestTestfile.cmake
+
+# Project specific files
+bin
