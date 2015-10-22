@@ -2,6 +2,9 @@ cmake_minimum_required (VERSION 2.8.4)
 project(FE-CLI)
 include(CTest)
 
+# ycm support
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
+
 # build executables in bin/
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 

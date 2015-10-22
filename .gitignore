@@ -34,11 +34,15 @@ CMakeScripts
 Makefile
 cmake_install.cmake
 install_manifest.txt
+compile_commands.json
 
 # Ctest
 Testing
 DartConfiguration.tcl
 CTestTestfile.cmake
+
+# YCM
+.ycm_extra_conf.*
 
 # Project specific files
 bin
