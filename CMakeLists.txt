@@ -8,8 +8,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 # build executables in bin/
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
-# use C++ 11
-set(CMAKE_CXX_FLAGS "-std=c++11 -Isrc/classes")
+# set flags
+set(CMAKE_CXX_FLAGS "-std=c++11 -Isrc/classes -lmenu")
 
 # include curses
 find_package(Curses REQUIRED)
