@@ -11,14 +11,22 @@ std::string get_file_contents(const char *);
 int main() {
   // initialize
   initscr();
-	int row, col;
+	int row, col, dispr, dispc;
+	std::string logopath = "dat/logo_jp.txt";
 
-  // get splash
-	std::string logo = get_file_contents("dat/logo_en.txt");
-
-	// print to center of screen
+	// get row, column, and displacements
 	getmaxyx(stdscr,row,col);
-	mvprintw(row/2, 0, "%s", logo.c_str());
+	dispr = 20;
+	dispc = 100;
+	row = (row - dispr) / 2;
+	col = (col - dispc) / 2;
+	row -= 8; // move it up 8 rows to make room for menu
+
+  // get splash & print to center of screen
+	std::ifstream inf(logopath, std::ios::in | std::ios::binary);
+	for(std::string line; getline(inf, line); ) {
+		mvprintw(row++, col, "%s", line.c_str());
+	}
 	refresh();
 
 	// get char to keep window open, and exit
