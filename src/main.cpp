@@ -1,37 +1,47 @@
+#include <fstream>
+#include <string>
 #include <ncurses.h>
 
 #include "feCharacter.h"
 #include "feClass.h"
 #include "feUtils.h"
 
+std::string get_file_contents(const char *);
+
 int main() {
   // initialize
-  feClass c;
-  feCharacter test('m', "My Unit", false, 'p', c);
-  feUtils utils;
   initscr();
+	int row, col;
 
-  // test character and class initialization
-  printw("initialization of character MU successful\n");
+  // get splash
+	std::string logo = get_file_contents("dat/logo_en.txt");
 
-  // test RNG functionality
-  printw("testing RNG machine\n");
-  int a;
-  for(int i = 0; i < 100; ++i) {
-    a = utils.feRNG();
-    printw("%d ", a);
-  }
-  printw("\nRNG execution successful\n");
+	// print to center of screen
+	getmaxyx(stdscr,row,col);
+	mvprintw(row/2, 0, "%s", logo.c_str());
+	refresh();
 
-  // test terminal capabilities
-  printw("testing terminal capabilities:\n");
-  if(has_colors()) printw("terminal supports colors\n");
-  else printw("terminal does not support colors\n");
-  if(can_change_color()) printw("terminal can change colors\n");
-  else printw("terminal cannot change colors\n");
-
-  // get char to keep window open, and exit
+	// get char to keep window open, and exit
   getch();
   endwin();
   return 0;
+}
+
+std::string get_file_contents(const char *filename) {
+  std::ifstream in(filename, std::ios::in | std::ios::binary);
+  if (in)
+  {
+    std::string contents;
+    in.seekg(0, std::ios::end);
+    contents.resize(in.tellg());
+    in.seekg(0, std::ios::beg);
+    in.read(&contents[0], contents.size());
+    in.close();
+    return(contents);
+  }
+  throw(errno);
+	/* std::ifstream ifs(filename); */
+	/* std::string content( (std::istreambuf_iterator<char>(ifs) ), */
+                       /* (std::istreambuf_iterator<char>()    ) ); */
+	/* return content; */
 }
