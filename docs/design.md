@@ -45,3 +45,8 @@ Upon entering a map with a roster, the player is then presented with the Battle 
 +--------------------------------+
 ```
 In the map panel, background colors will differentiate between different tiles. Filled tiles are considered uncrossable terrain. When selecting a unit, blue signifies a potential movement option, red signifies potential attack options, and green signifies potential staff options. Other colors are in consideration for tiles that slope, "air" tiles, sparkling tiles, village tiles, and others.
+
+Splash Screen
+-------------
+
+ASCII art logos are in ```dat/``` as ```logo_en.txt``` and ```logo_jp.txt```. Created by the ![DeGraeve tool](http://www.degraeve.com/img2txt.php) and edited afterward. Feel free to use it elsewhere; it's not exactly difficult to make.
