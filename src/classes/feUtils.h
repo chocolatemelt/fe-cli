@@ -17,6 +17,7 @@ class feUtils {
           critical = 0;
           avoid = 0;
           rating = 0;
+          recovery_amount = 0;
       }
 
       feUtils(std::string s) {
@@ -27,6 +28,7 @@ class feUtils {
           critical = 0;
           avoid = 0;
           rating = 0;
+          recovery_amount = 0;
       }
 
       int feRNG();
@@ -41,12 +43,14 @@ class feUtils {
       int getRating() { return rating; }
 
       // Mutators
-      void setAttack(const std::vector<int>& character_stats);
-      void setHitRate(const std::vector<int>& weapon_stats, const char rank, const int buffOrDebuff);
-      void setCritical(const std::vector<int>& character_stats);
-      void setAvoid(const std::vector<int>& character_stats);
-      void setRating(const std::vector<int>& character_stats);
-      void resetCombatStats();
+      void setBaseAttack(const std::vector<int>& character_stats);
+      void setBaseHitRate(const std::vector<int>& weapon_stats, const char rank, const int buffOrDebuff);
+      void setBaseCritical(const std::vector<int>& character_stats);
+      void setBaseAvoid(const std::vector<int>& character_stats);
+      void setBaseRating(const std::vector<int>& character_stats);
+
+      void weaponTriangle(const char rank, const int buffOrDebuff);
+      void weaponRankBonus(const char rank, const std::string &weapon_type);
 
   private:
       // Combat Stats
@@ -56,9 +60,8 @@ class feUtils {
       int avoid;
       int rating;
 
-      // Mutators
-      void weaponTriangle(const char rank, const int buffOrDebuff);
-      //void weaponRankBonus(const char rank, const & std::string weapon_type);
+      //Healing related variables
+      int recovery_amount;
 };
 
 #endif
