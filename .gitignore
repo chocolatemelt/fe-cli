@@ -46,3 +46,4 @@ CTestTestfile.cmake
 
 # Project specific files
 bin
+build
