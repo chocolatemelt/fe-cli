@@ -19,7 +19,8 @@ Make sure you have the latest ncurses development library and CMake 2.8 or highe
 ```
 $ git clone https://github.com/chocolatemelt/fe-cli.git
 $ cd fe-cli
-$ cmake .
+$ mkdir build && cd build
+$ cmake ..
 $ make
 ```
 
