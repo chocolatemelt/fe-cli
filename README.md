@@ -26,6 +26,7 @@ $ make
 
 It works on Windows! Proof:
 ![Cygwin](http://i.imgur.com/0NQXCBe.png)
+
 As stated before, you only require the latest ncurses development library from Cygwin sources and CMake 2.8 or higher. [Babun](http://babun.github.io/) comes with ncurses so you can just run ```pact install cmake``` and you're good to go.
 
 controls
