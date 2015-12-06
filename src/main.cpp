@@ -76,8 +76,11 @@ int main() {
 	wrefresh(game_menu_win);
 	wrefresh(game_menu_sub);
 
-	// exit handler
-	while((c = getch()) != 10){
+	// keypress handler
+	while((c = getch())) {
+		// exit if q or esc key is pressed (esc strangely lags...)
+		if(c == 'q' || c == 27) break;
+
 		switch(c) {
 			case KEY_DOWN:
 				menu_driver(game_menu, REQ_DOWN_ITEM);
