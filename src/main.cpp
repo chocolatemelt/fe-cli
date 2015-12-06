@@ -52,7 +52,7 @@ int main() {
 	}
 	refresh();
 
-	// build menu (looks more c than c++ to me...)
+	// build menu
 	int c, n_choices;
 	n_choices = ARRAY_SIZE(menu);
 	items = (ITEM **) calloc(n_choices + 1, sizeof(ITEM *));
@@ -61,17 +61,17 @@ int main() {
 	game_menu = new_menu((ITEM **) items);
 	set_menu_mark(game_menu, ">");
 
-	// create menu window for positioning
+	// create menu windows for positioning
 	height = n_choices + 2;
 	width = 14; // max width + 4 (TODO programmatically get max width of an item)
 	getmaxyx(stdscr, c, col); // using c as a dummy variable here; probably better way to do this
 	col = (col - width) / 2;
 	game_menu_win = newwin(height, width, row, col);
 	game_menu_sub = derwin(game_menu_win, height-2, width-2, 1, 1);
+
+	// set menu windows and display!
 	set_menu_win(game_menu, game_menu_win);
 	set_menu_sub(game_menu, game_menu_sub);
-
-	// display menu!
 	post_menu(game_menu);
 	wrefresh(game_menu_win);
 	wrefresh(game_menu_sub);
