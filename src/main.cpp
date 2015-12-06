@@ -18,20 +18,24 @@ int main() {
   initscr();
 	cbreak();
 	noecho();
+	refresh();
 	keypad(stdscr, true);
 
-	int row, col, dispr, dispc;
+	int row, col, dispr, dispc; // positional variables
+	int width, height; // menu window dimensions
 	std::string logopath = "dat/logo_jp.txt";
 
 	const char *menu[] = {
-		"Start",
-		"Rosters",
-		"Options",
-		"Exit"
+		"  Start  ",
+		"  Rosters  ",
+		"  Options  ",
+		"  Exit  "
 	};
 	ITEM **items;
 	ITEM *cur_item;
 	MENU *game_menu;
+	WINDOW *game_menu_win;
+	WINDOW *game_menu_sub;
 
 	// get row, column, and displacements
 	getmaxyx(stdscr,row,col);
@@ -52,26 +56,46 @@ int main() {
 	int c, n_choices;
 	n_choices = ARRAY_SIZE(menu);
 	items = (ITEM **) calloc(n_choices + 1, sizeof(ITEM *));
-	for(int i = 0; i < n_choices; ++i) items[i] = new_item(menu[i], menu[i]);
+	for(int i = 0; i < n_choices; ++i) items[i] = new_item(menu[i], "");
 	items[n_choices] = (ITEM *) NULL;
 	game_menu = new_menu((ITEM **) items);
+	set_menu_mark(game_menu, ">");
+
+	// create menu window for positioning
+	height = n_choices + 2;
+	width = 14; // max width + 4 (TODO programmatically get max width of an item)
+	getmaxyx(stdscr, c, col); // using c as a dummy variable here; probably better way to do this
+	col = (col - width) / 2;
+	game_menu_win = newwin(height, width, row, col);
+	game_menu_sub = derwin(game_menu_win, height-2, width-2, 1, 1);
+	set_menu_win(game_menu, game_menu_win);
+	set_menu_sub(game_menu, game_menu_sub);
+
+	// display menu!
 	post_menu(game_menu);
+	wrefresh(game_menu_win);
+	wrefresh(game_menu_sub);
 
 	// exit handler
 	while((c = getch()) != 10){
 		switch(c) {
 			case KEY_DOWN:
-		    menu_driver(game_menu, REQ_DOWN_ITEM);
+				menu_driver(game_menu, REQ_DOWN_ITEM);
+				wrefresh(game_menu_win);
+				wrefresh(game_menu_sub);
 				break;
 			case KEY_UP:
 				menu_driver(game_menu, REQ_UP_ITEM);
+				wrefresh(game_menu_win);
+				wrefresh(game_menu_sub);
 				break;
 		}
 	}
 
-	// free stuff up and exit
-	free_item(items[0]);
-	free_item(items[1]);
+	// cleanup routine
+	for(int i = 0; i < n_choices; ++i) free_item(items[i]);
+	delwin(game_menu_win);
+	delwin(game_menu_sub);
 	free_menu(game_menu);
   endwin();
   return 0;
