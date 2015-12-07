@@ -14,6 +14,8 @@ requirements
 build & install
 ---------------
 
+### *nix
+
 Make sure you have the latest ncurses development library and CMake 2.8 or higher.
 
 ```
@@ -24,9 +26,17 @@ $ cmake ..
 $ make
 ```
 
-It works on Windows! Proof:
-![Cygwin](http://i.imgur.com/0NQXCBe.png)
-As stated before, you only require the latest ncurses development library from Cygwin sources and CMake 2.8 or higher. [Babun](http://babun.github.io/) comes with ncurses so you can just run ```pact install cmake``` and you're good to go.
+### windows
+
+![preview](screenshots/win_screen.png)
+
+The only supported building system for Windows currently requires Cygwin with ncurses-devel and CMake 2.8 or higher. It's preferred to use the cygwin package for CMake but with some tweaking the Windows binary will also work.
+
+[Babun](http://babun.github.io/) is an easy way to get set up if you haven't yet already; just run ```pact install ncurses cmake``` and you should be good to go!
+
+Building through the terminal is the exact same as *nix systems; just run the above commands. If everything went well, your terminal should look something like this:
+
+![babun/cygwin build](screenshots/win_compile.png)
 
 controls
 --------
