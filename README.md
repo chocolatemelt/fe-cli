@@ -16,6 +16,8 @@ build & install
 
 ### *nix
 
+![preview](screenshots/linux_screen.png)
+
 Make sure you have the latest ncurses development library and CMake 2.8 or higher.
 
 ```
