@@ -11,9 +11,13 @@
  * stats must be taken from a conglomeration of class stats and base stats,
  * have characters define the getters/setters of their stats.
  */
-class feClass {
-  protected:
-    std::string class_type; // Name of class
+class feClass
+{
+private:
+    void initializeNameStats(std::string baseClassData);
+
+protected:
+    std::string class_name; // Name of class
 
     int base_stats [8]; // HP, Str, Mag, Skl, Spd, Def, Res, Mov
     int max_stats [8]; // Lvl, HP, Str, Mag, Skl, Spd, Def, Res
@@ -31,9 +35,9 @@ class feClass {
     bool class_weakness; // True = weak to something, False = no weakness
     std::string weakness; // Not really what it's weak to, but what makes it weak to things
 
-  public:
-    feClass();
-    std::string class_name();
+public:
+    feClass(std::string baseClassData);
+    std::string getClassName();
 };
 
 #endif

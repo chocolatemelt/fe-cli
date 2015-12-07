@@ -1,5 +1,4 @@
 #include "feUtils.h"
-#include <vector>
 #include <cmath>
 
 /**
@@ -19,6 +18,8 @@ int feUtils::feRNG() {
  * Modifies: attack - use to calculate base attack without any modifiers
  *
  * Return: Nothing
+ * Notes: Make sure to check whether using a physical or magical weapon prior to
+ * using this method
  */
 void feUtils::setBaseAttack(const std::vector<int>& character_stats) {
     attack = 0;

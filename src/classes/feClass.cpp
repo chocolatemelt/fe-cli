@@ -1,7 +1,15 @@
 #include "feClass.h"
 
-feClass::feClass() {}
+feClass::feClass(std::string baseClassData)
+{
+	initializeNameStats(baseClassData);
+}
 
-std::string feClass::class_name() {
-	return class_type;
+void feClass::initializeNameStats(std::string baseClassData)
+{
+	
+}
+
+std::string feClass::getClassName() {
+	return class_name;
 }
