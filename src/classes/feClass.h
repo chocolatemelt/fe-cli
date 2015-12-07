@@ -36,6 +36,7 @@ protected:
     std::string weakness; // Not really what it's weak to, but what makes it weak to things
 
 public:
+		feClass();
     feClass(std::string baseClassData);
     std::string getClassName();
 };

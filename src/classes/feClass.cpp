@@ -1,13 +1,13 @@
 #include "feClass.h"
 
-feClass::feClass(std::string baseClassData)
-{
+feClass::feClass() {
+}
+
+feClass::feClass(std::string baseClassData) {
 	initializeNameStats(baseClassData);
 }
 
-void feClass::initializeNameStats(std::string baseClassData)
-{
-	
+void feClass::initializeNameStats(std::string baseClassData) {
 }
 
 std::string feClass::getClassName() {

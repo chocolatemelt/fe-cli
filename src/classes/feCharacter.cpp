@@ -24,7 +24,7 @@ void feCharacter::initStats() {
   base.emplace("def", 0);
   base.emplace("res", 0);
   base.emplace("mov", 0);
-  
+
   growth.emplace("str", 0);
   growth.emplace("mag", 0);
   growth.emplace("skl", 0);
@@ -58,5 +58,5 @@ std::string feCharacter::printInfo() {
 
 
 
-  return id + name + g + loy; 
+  return id + name + g + loy;
 }
