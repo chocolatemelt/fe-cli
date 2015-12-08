@@ -101,10 +101,12 @@ int main() {
 	}
 
 	// cleanup routine
-	for(int i = 0; i < n_choices; ++i) free_item(items[i]);
+	unpost_menu(game_menu);
 	delwin(game_menu_win);
 	delwin(game_menu_sub);
 	free_menu(game_menu);
+	for(int i = 0; i < n_choices; ++i) free_item(items[i]);
+	free(items);
   endwin();
   return 0;
 }
