@@ -18,7 +18,7 @@ int main() {
   initscr();
 	cbreak();
 	noecho();
-	refresh();
+	curs_set(false);
 	keypad(stdscr, true);
 
 	int row, col, dispr, dispc; // positional variables
@@ -91,6 +91,11 @@ int main() {
 				menu_driver(game_menu, REQ_UP_ITEM);
 				wrefresh(game_menu_win);
 				wrefresh(game_menu_sub);
+				break;
+			case 10: case 'z': case 'x': // selecting an item
+				ITEM *cur;
+				cur = current_item(game_menu);
+				printw("item sel is %s", (char *)item_name(cur));
 				break;
 		}
 	}
