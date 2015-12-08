@@ -1,7 +1,7 @@
 fe-cli
 ------
 
-FE:CLI puts the Fire Emblem tactical RPG gameplay in your terminal! Built for extensibility, flexibility, and faithfulness to the originals.
+FE-CLI puts the Fire Emblem tactical RPG gameplay in your terminal! Built for extensibility, flexibility, and faithfulness to the originals.
 Read the docs for more information.
 
 requirements
