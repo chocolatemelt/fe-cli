@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <string>
+#include <cstring>
 #include <ncurses.h>
 #include <menu.h>
 
@@ -23,7 +24,7 @@ int main() {
 
 	int row, col, dispr, dispc; // positional variables
 	int width, height; // menu window dimensions
-	std::string logopath = "dat/logo_jp.txt";
+	std::string logopath = "dat/logo_jp.txt"; // relative! not ok
 
 	const char *menu[] = {
 		"  Start  ",
@@ -78,16 +79,13 @@ int main() {
 
 	// keypress handler
 	while((c = getch())) {
-		// exit if q or esc key is pressed (esc strangely lags...)
-		if(c == 'q' || c == 27) break;
-
 		switch(c) {
-			case KEY_DOWN:
+			case KEY_DOWN: case 's':
 				menu_driver(game_menu, REQ_DOWN_ITEM);
 				wrefresh(game_menu_win);
 				wrefresh(game_menu_sub);
 				break;
-			case KEY_UP:
+			case KEY_UP: case 'w':
 				menu_driver(game_menu, REQ_UP_ITEM);
 				wrefresh(game_menu_win);
 				wrefresh(game_menu_sub);
@@ -95,9 +93,26 @@ int main() {
 			case 10: case 'z': case 'x': // selecting an item
 				ITEM *cur;
 				cur = current_item(game_menu);
-				printw("item sel is %s", (char *)item_name(cur));
+				char *tmp = (char *)item_name(cur);
+
+				// handle menu items
+				if(strcmp(tmp, "  Start  ") == 0) {
+					// delete and recreate all windows
+				}
+				else if(strcmp(tmp, "  Roster  ") == 0) {
+					// delete and recreate all windows, specifically for roster
+				}
+				else if(strcmp(tmp, "  Options  ") == 9) {
+					// delete and recreate all windows, only options (menu form most likely)
+				}
+				else if(strcmp(tmp, "  Exit  ") == 0) {
+					c = 'q'; // quit out
+				}
 				break;
 		}
+
+		// exit if q or esc key is pressed (esc strangely lags...)
+		if(c == 'q' || c == 27) break;
 	}
 
 	// cleanup routine
