@@ -43,7 +43,11 @@ Building through the terminal is the exact same as *nix systems; just run the ab
 controls
 --------
 
- * WASD - move
- * Arrow keys - move
- * Enter - select
+ * WASD / arrow keys - move
+ * Z / Enter - select
+ * X / Backspace - unselect/go back
  * Tab - open menu
+
+The two recommended control schemes are:
+ * WASD / Enter / Backspace / Tab
+ * arrow keys / Z / X / Tab
