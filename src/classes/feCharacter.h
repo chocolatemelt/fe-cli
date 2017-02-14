@@ -1,29 +1,28 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-#include <unordered_map>
+#include <sstream>
 #include <string>
 #include <vector>
-#include <sstream>
 
 #include "feClass.h"
-#include "feSkill.h"
 #include "feItem.h"
-
-typedef std::unordered_map< std::string, char > dict;
-typedef std::unordered_map< std::string, int > stats;
+#include "feRank.h"
+#include "feSkill.h"
+#include "feStats.h"
+#include "feSupport.h"
 
 class feCharacter {
   private:
-		std::string uniqID;// unique identifier for the character on the map
-    std::string name;  // display name
-    bool gender;       // 0: female, 1: male
-    char loyalty;      // 'p': player, 'a': ally, 'e': enemy, else neutral
-		char affinity;     // 'a'nima, 'd'ark, 'f'ire, 'i'ce, 'l'ight, 't'hunder, 'w'ind, 'h'eaven
-    feClass job;       // character class
+		std::string uniqID; // unique identifier for the character on the map
+    std::string name;   // display name
+    bool gender;        // 0: female, 1: male
+    char loyalty;       // 'p': player, 'a': ally, 'e': enemy, else neutral
+		char affinity;      // 'a'nima, 'd'ark, 'f'ire, 'i'ce, 'l'ight, 't'hunder, 'w'ind, 'h'eaven
+    feClass job;        // character class
 
-    dict supports;     // support bonds from C-S, where string identifies character
-    dict weaponRank;   // weapon proficiency from E-S, where string identifies type
+    feSupport supports; // support bonds from C - S/A+, see feSupport.h
+    feRank weaponRank;  // weapon proficiency from E-S, see feRank.h
 
     /**
      * STATS
@@ -38,13 +37,13 @@ class feCharacter {
      * Growths modify the class growths. I'm not sure if this is how it actually works.
      * Current does NOT include bonuses for easier outputting.
      */
-    int current_lvl;   // Level of character
-    int internal_lvl;  // Total number of levels overall
-    stats base;        // base stats of the unit
-    stats cap;         // capped maximum stat modifiers
-    stats current;     // current stats of the unit (without bonuses)
-    stats bonus;       // bonus stats given to the unit
-    std::unordered_map< std::string, double > growth;    // stat growths of the unit
+    int current_lvl;    // Level of character
+    int internal_lvl;   // Total number of levels overall
+    feStats base;       // base stats of the unit
+    feStats cap;        // capped maximum stat modifiers
+    feStats current;    // current stats of the unit (without bonuses)
+    feStats bonus;      // bonus stats given to the unit
+    feStats growth;     // stat growths of the unit
     int current_experience;     // Current amount of experience till leveling up
     stats weapon_experience;    // Current amount of experience for each weapon type till leveling up
 
