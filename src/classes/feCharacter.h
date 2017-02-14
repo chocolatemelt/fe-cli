@@ -15,7 +15,7 @@ typedef std::unordered_map< std::string, int > stats;
 
 class feCharacter {
   private:
-    char uniqID;       // unique identifier for the character on the map
+		std::string uniqID;// unique identifier for the character on the map
     std::string name;  // display name
     bool gender;       // 0: female, 1: male
     char loyalty;      // 'p': player, 'a': ally, 'e': enemy, else neutral

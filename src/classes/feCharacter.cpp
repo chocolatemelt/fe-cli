@@ -1,10 +1,11 @@
 #include "feCharacter.h"
 
-feCharacter::feCharacter(char id, std::string n, bool g, char l, feClass j) {
-  uniqID = id;
+feCharacter::feCharacter(std::string n, std::string id, bool g, char l, char a, feClass j) {
   name = n;
+  uniqID = id;
   gender = g;
   loyalty = l;
+	affinity = a;
   job = j;
 
   /* initialize stats */
@@ -23,6 +24,7 @@ void feCharacter::initStats() {
   base.emplace("lck", 0);
   base.emplace("def", 0);
   base.emplace("res", 0);
+	base.emplace("con", 0);
   base.emplace("mov", 0);
 
   growth.emplace("str", 0);
@@ -32,6 +34,7 @@ void feCharacter::initStats() {
   growth.emplace("lck", 0);
   growth.emplace("def", 0);
   growth.emplace("res", 0);
+	growth.emplace("con", 0);
   growth.emplace("mov", 0);
 
   // copy
