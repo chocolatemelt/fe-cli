@@ -1,8 +1,8 @@
 #include "feCharacter.h"
 
-feCharacter::feCharacter(std::string n, std::string id, bool g, char l, char a, feClass j) {
-  name = n;
+feCharacter::feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j) {
   uniqID = id;
+  name = n;
   gender = g;
   loyalty = l;
 	affinity = a;

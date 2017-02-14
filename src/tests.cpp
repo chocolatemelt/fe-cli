@@ -8,7 +8,7 @@
 int main() {
 
   feClass c;
-  feCharacter test('m', "Marth", true, 'p', c);
+  feCharacter test("Ma", "Marth", true, 'p', 'l', c);
   feUtils utils;
 
 	// test character initialization

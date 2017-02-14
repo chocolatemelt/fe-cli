@@ -19,6 +19,7 @@ class feCharacter {
     std::string name;  // display name
     bool gender;       // 0: female, 1: male
     char loyalty;      // 'p': player, 'a': ally, 'e': enemy, else neutral
+		char affinity;     // 'a'nima, 'd'ark, 'f'ire, 'i'ce, 'l'ight, 't'hunder, 'w'ind, 'h'eaven
     feClass job;       // character class
 
     dict supports;     // support bonds from C-S, where string identifies character
@@ -85,7 +86,7 @@ class feCharacter {
      * Just have feCharacter extend from feClass and then implement any necessary
      * details.
      */
-    feCharacter(char id, std::string n, bool g, char l, feClass j);
+    feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j);
     void initStats();
     std::string printInfo();
 };
