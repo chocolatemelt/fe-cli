@@ -2,7 +2,8 @@
 #include <cmath>
 
 /**
- * Return: Random number from 0 to 99.
+ * int feRNG()
+ * @return Random number from 0 to 99.
  */
 int feUtils::feRNG() {
     static std::uniform_int_distribution<int> rng(0, 99);
@@ -10,16 +11,15 @@ int feUtils::feRNG() {
 }
 
 /**
- * Parameters:
+ * void setBaseAttack()
+ * NOTE: Make sure to check whether using a physical or magical weapon prior to
+ * using this method
+ * @param
  *    character_stats: vector of ints containing
  *    values of the necessary character/weapon stats needed
  *    for calculating the actual attack of a character
  *
- * Modifies: attack - use to calculate base attack without any modifiers
- *
- * Return: Nothing
- * Notes: Make sure to check whether using a physical or magical weapon prior to
- * using this method
+ * @modifies attack - use to calculate base attack without any modifiers
  */
 void feUtils::setBaseAttack(const std::vector<int>& character_stats) {
     attack = 0;
@@ -29,7 +29,8 @@ void feUtils::setBaseAttack(const std::vector<int>& character_stats) {
 }
 
 /**
- * Parameters:
+ * void setBaseHitRate()
+ * @param
  *    weapon_stats: vector of ints containing
  *    values of the necessary character/weapon stats needed
  *    for calculating the actual hit rate of a character
@@ -38,10 +39,8 @@ void feUtils::setBaseAttack(const std::vector<int>& character_stats) {
  *    buffOrDebuff: an integer representing whether it's
  *    debuff or buff to character
  *
- * Modifies: hit_rate - use to calculate base hit rate without
+ * @modifies hit_rate - use to calculate base hit rate without
  * any modifiers
- *
- * Return: Nothing
  */
 void feUtils::setBaseHitRate(const std::vector<int>& weapon_stats, const char rank, const int buffOrDebuff) {
     hit_rate = 0;
@@ -52,15 +51,14 @@ void feUtils::setBaseHitRate(const std::vector<int>& weapon_stats, const char ra
 }
 
 /**
- * Parameters:
+ * void setBaseCritical()
+ * @param
  *    character_stats: vector of ints containing
  *    values of the necessary character/weapon stats needed
  *    for calculating the actual critical rate of a character
  *
- * Modifies: critical - use to calculate base critical chance without
+ * @modifies critical - use to calculate base critical chance without
  * any modifiers
- *
- * Return: Nothing
  */
 void feUtils::setBaseCritical(const std::vector<int>& character_stats) {
     critical = 0;
@@ -68,15 +66,14 @@ void feUtils::setBaseCritical(const std::vector<int>& character_stats) {
 }
 
 /**
- * Parameters:
+ * void setBaseAvoid()
+ * @param
  *    character_stats: vector of ints containing
  *    values of the necessary character/weapon stats needed
  *    for calculating the actual avoid rate of a character
  *
- * Modifies: avoid - use to calculate base avoid of character without
+ * @modifies avoid - use to calculate base avoid of character without
  * any modifiers
- *
- * Return: Nothing
  */
 void feUtils::setBaseAvoid(const std::vector<int>& character_stats) {
     avoid = 0;
@@ -84,15 +81,16 @@ void feUtils::setBaseAvoid(const std::vector<int>& character_stats) {
 }
 
 /**
- * Parameters:
+ * void setBaseRating()
+ * @param
  *    character_stats: vector of ints containing
  *    values of the necessary character/weapon stats needed
  *    for calculating the rating of a character
  *
- * Modifies: rating - use to calculate base rating of character without
+ * @modifies rating - use to calculate base rating of character without
  * any modifiers
  *
- * Return: Nothing
+ * @return nothing
  */
 void feUtils::setBaseRating(const std::vector<int>& character_stats) {
     rating = 0;
@@ -102,12 +100,12 @@ void feUtils::setBaseRating(const std::vector<int>& character_stats) {
 }
 
 /**
- * Parameters:
+ * void weaponTriangle()
+ * Calculates the weapon triangle buff of debuff for specified character when
+ * about to initiate combat
+ * @param
  *      rank: a character representing a character's weapon rank (capital letter)
  *      buffOrDebuff: an integer representing whether it's debuff or buff to character
- *
- * Modifies: Calculates the weapon triangle buff of debuff for specified character when
- * about to initiate combat
  */
 void feUtils::weaponTriangle(const char rank, const int buffOrDebuff) {
     // Buff
@@ -138,7 +136,7 @@ void feUtils::weaponTriangle(const char rank, const int buffOrDebuff) {
         else if(rank == 'B')
         {
             hit_rate -= 10;
-            attack += 1;
+            attack -= 1;
         }
         else if(rank == 'A')
         {
@@ -149,12 +147,12 @@ void feUtils::weaponTriangle(const char rank, const int buffOrDebuff) {
 }
 
 /**
- * Parameters:
+ * void weaponRankBonus()
+ * Calculates the additional weapon rank bonus for a character when
+ * equipping a specific weapon type
+ * @param
  *      rank: a character representing a character's weapon rank (capital letter)
  *      weapon_type: a string specifying character's currently equipped weapon type
- *
- * Modifies: Calculates the additional weapon rank bonus for a character when
- * equipping a specific weapon type
  */
 void feUtils::weaponRankBonus(const char rank, const std::string &weapon_type)
 {
