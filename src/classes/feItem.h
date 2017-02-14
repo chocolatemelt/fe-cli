@@ -1,10 +1,13 @@
 #ifndef ITEM_H
 #define ITEM_H
 
+#include <string>
+
 class feItem {
-  private:
+	private:
 		std::string name;
-  public:
+		int usages;
+	public:
 		/**
 		 * std::string check()
 		 * @return a string that can be matched against to
@@ -16,7 +19,7 @@ class feItem {
 		 * Plaintext printing for debugging or informational
 		 * purposes.
 		 */
- 		virtual void print() = 0;
+		virtual void print() = 0;
 		/**
 		 * void use()
 		 * Use this item.
