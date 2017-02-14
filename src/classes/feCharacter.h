@@ -65,7 +65,7 @@ class feCharacter {
      * Note that convoy items are stored in the feRoster object, and
      * not on any characters.
      */
-    std::vector< feItem > bag;
+    std::vector< feItem * > bag;
     feItem *equipped;
 
     /**
