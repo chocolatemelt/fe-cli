@@ -22,6 +22,7 @@ class feCharacter {
     feClass job;        // character class
 
     feSupport supports; // support bonds from C - S/A+, see feSupport.h
+                        // support other class or characters?
     feRank weaponRank;  // weapon proficiency from E-S, see feRank.h
 
     /**
@@ -39,6 +40,8 @@ class feCharacter {
      */
     int current_lvl;    // Level of character
     int internal_lvl;   // Total number of levels overall
+    //use this stat member
+    //refer to class stat member for max?
     feStats base;       // base stats of the unit
     feStats cap;        // capped maximum stat modifiers
     feStats current;    // current stats of the unit (without bonuses)

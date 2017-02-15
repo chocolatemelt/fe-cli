@@ -54,6 +54,7 @@ class feUtils {
 
   private:
       // Combat Stats
+      //theres two stats classes?
       int attack;
       int hit_rate;
       int critical;
