@@ -11,6 +11,7 @@
 #include "feSkill.h"
 #include "feStats.h"
 #include "feSupport.h"
+#include "feWeapon.h"
 
 class feCharacter {
   private:
@@ -93,6 +94,20 @@ class feCharacter {
     //init uses feStats methods but its a struct
     void initStats();
     std::string printInfo();
+
+    void changeHp(int val);
+    bool ded();
+
+    //need for combat
+    feItem* getWep();
+    int getStr();
+    int getMag();
+    int getSkl();
+    int getLck();
+    int getSpd();
+    int getDef();
+    int getRes();
+    std::string getWeak();
 };
 
 #endif

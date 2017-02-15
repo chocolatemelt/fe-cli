@@ -4,7 +4,7 @@
 #include <string>
 
 class feItem {
-	private:
+	protected:
 		std::string name;
 		int usages;
 	public:

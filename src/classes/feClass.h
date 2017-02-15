@@ -42,6 +42,7 @@ public:
 		feClass();
     feClass(std::string baseClassData);
     std::string getClassName();
+	std::string getWeak() { return weakness; }
 };
 
 #endif
