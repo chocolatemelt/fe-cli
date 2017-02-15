@@ -48,7 +48,8 @@ class feCharacter {
     feStats bonus;      // bonus stats given to the unit
     feStats growth;     // stat growths of the unit
     int current_experience;     // Current amount of experience till leveling up
-    stats weapon_experience;    // Current amount of experience for each weapon type till leveling up
+    //add another wepstat class? or weapons share same stats class as players
+    //stats weapon_experience;    // Current amount of experience for each weapon type till leveling up
 
     /**
      * SKILLS
@@ -89,6 +90,7 @@ class feCharacter {
      * details.
      */
     feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j);
+    //init uses feStats methods but its a struct
     void initStats();
     std::string printInfo();
 };

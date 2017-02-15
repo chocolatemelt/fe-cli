@@ -8,6 +8,13 @@ class feWeapon : public feItem  {
 		int mt;
 
 	public:
+		//check class if usable
+		std::string check();
+
+		void print();
+
+		//equips?
+		void use();
 };
 
 #endif

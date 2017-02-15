@@ -34,7 +34,7 @@ void feCharacter::initStats() {
   growth.emplace("lck", 0);
   growth.emplace("def", 0);
   growth.emplace("res", 0);
-	growth.emplace("con", 0);
+  growth.emplace("con", 0);
   growth.emplace("mov", 0);
 
   // copy

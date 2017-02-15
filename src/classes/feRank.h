@@ -3,7 +3,8 @@
 
 class feRank
 {
-
+private:
+public:
 };
 
 #endif
