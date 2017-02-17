@@ -84,7 +84,7 @@ class feCharacter {
      * Just have feCharacter extend from feClass and then implement any necessary
      * details.
      */
-    feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j, feWeaponRank wr);
+    feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j);
     void initStats();
     std::string printInfo();
 

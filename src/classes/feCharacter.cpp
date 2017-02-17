@@ -1,14 +1,13 @@
 #include "feCharacter.h"
 
-feCharacter::feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j, feWeaponRank wr) {
+feCharacter::feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j) {
   uniqID = id;
   name = n;
   gender = g;
   loyalty = l;
   affinity = a;
   job = j;
-  //???
-  weaponRank = wr;
+  weaponRank = feWeaponRank(j);
 
   /* initialize stats */
   initStats();
