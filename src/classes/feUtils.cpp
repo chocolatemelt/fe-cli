@@ -21,11 +21,15 @@ int feUtils::feRNG() {
  *
  * @modifies attack - use to calculate base attack without any modifiers
  */
-void feUtils::setBaseAttack(const std::vector<int>& character_stats) {
+void feUtils::setBaseAttack(const feStats& character_stats, bool isPhys, int mt) {
     attack = 0;
-    std::vector<int>::const_iterator itr = character_stats.begin();
-    for( ; itr != character_stats.end(); ++itr)
-        attack += *itr;
+    if (isPhys){
+        attack += character_stats.str;
+    }
+    else{
+        attack += character_stats.mag;
+    }
+    attack += mt;
 }
 
 /**
@@ -42,12 +46,10 @@ void feUtils::setBaseAttack(const std::vector<int>& character_stats) {
  * @modifies hit_rate - use to calculate base hit rate without
  * any modifiers
  */
-void feUtils::setBaseHitRate(const std::vector<int>& weapon_stats, const char rank, const int buffOrDebuff) {
+void feUtils::setBaseHitRate(const feStats& character_stats, int hr) {
     hit_rate = 0;
-    hit_rate = weapon_stats[0] +
-               ((weapon_stats[1] * 3) + ceil(weapon_stats[2])/2) +
-               weapon_stats[4];
-    weaponTriangle(rank, buffOrDebuff);
+    hit_rate += ((character_stats.skl * 3) + character_stats.lck) / 2;
+    hit_rate += hr;
 }
 
 /**
@@ -60,9 +62,10 @@ void feUtils::setBaseHitRate(const std::vector<int>& weapon_stats, const char ra
  * @modifies critical - use to calculate base critical chance without
  * any modifiers
  */
-void feUtils::setBaseCritical(const std::vector<int>& character_stats) {
+void feUtils::setBaseCritical(const feStats& character_stats, int crit) {
     critical = 0;
-    critical = character_stats[0] + ceil(character_stats[1]/2);
+    critical += character_stats.skl / 2;
+    critical += crit;
 }
 
 /**
@@ -75,9 +78,9 @@ void feUtils::setBaseCritical(const std::vector<int>& character_stats) {
  * @modifies avoid - use to calculate base avoid of character without
  * any modifiers
  */
-void feUtils::setBaseAvoid(const std::vector<int>& character_stats) {
+void feUtils::setBaseAvoid(const feStats& character_stats) {
     avoid = 0;
-    avoid = ceil(((character_stats[0] * 3) + character_stats[1])/2);
+    avoid += (character_stats.spd * 3 + character_stats.lck) / 2;
 }
 
 /**
@@ -92,11 +95,16 @@ void feUtils::setBaseAvoid(const std::vector<int>& character_stats) {
  *
  * @return nothing
  */
-void feUtils::setBaseRating(const std::vector<int>& character_stats) {
+void feUtils::setBaseRating(const feStats& character_stats, bool isPhys) {
     rating = 0;
-    std::vector<int>::const_iterator itr = character_stats.begin();
-    for( ; itr != character_stats.end(); ++itr)
-        rating += *itr;
+    if (isPhys){
+        rating += character_stats.str + character_stats.skl + character_stats.spd + character_stats.lck +
+                  character_stats.def + character_stats.res;
+    }
+    else{
+        rating += character_stats.mag + character_stats.skl + character_stats.spd + character_stats.lck +
+                  character_stats.def + character_stats.res;
+    }
 }
 
 /**

@@ -19,6 +19,6 @@ class feWeaponRank {
 		std::string getWeaponRanks(feClass f);
 		char getWeaponRank(std::string w);
 		void incWEx(int xp);
-}
+};
 
 #endif

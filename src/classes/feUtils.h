@@ -5,6 +5,7 @@
 #include <random>
 #include <time.h>
 #include <vector>
+#include "feStats.h"
 
 class feUtils {
   public:
@@ -43,11 +44,11 @@ class feUtils {
       int getRating() { return rating; }
 
       // Mutators
-      void setBaseAttack(const std::vector<int>& character_stats);
-      void setBaseHitRate(const std::vector<int>& weapon_stats, const char rank, const int buffOrDebuff);
-      void setBaseCritical(const std::vector<int>& character_stats);
-      void setBaseAvoid(const std::vector<int>& character_stats);
-      void setBaseRating(const std::vector<int>& character_stats);
+      void setBaseAttack(const feStats& character_stats, bool isPhys, int mt);
+      void setBaseHitRate(const feStats& character_stats, int hr);
+      void setBaseCritical(const feStats& character_stats, int crit);
+      void setBaseAvoid(const feStats& character_stats);
+      void setBaseRating(const feStats& character_stats, bool isPhys);
 
       void weaponTriangle(const char rank, const int buffOrDebuff);
       void weaponRankBonus(const char rank, const std::string &weapon_type);

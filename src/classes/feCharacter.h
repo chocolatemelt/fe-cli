@@ -7,22 +7,22 @@
 
 #include "feClass.h"
 #include "feItem.h"
-#include "feRank.h"
 #include "feSkill.h"
 #include "feStats.h"
 #include "feSupport.h"
+#include "feWeaponRank.h"
 
 class feCharacter {
   private:
-		std::string uniqID; // unique identifier for the character on the map
+    std::string uniqID; // unique identifier for the character on the map
     std::string name;   // display name
     bool gender;        // 0: female, 1: male
     char loyalty;       // 'p': player, 'a': ally, 'e': enemy, else neutral
-		char affinity;      // 'a'nima, 'd'ark, 'f'ire, 'i'ce, 'l'ight, 't'hunder, 'w'ind, 'h'eaven
+    char affinity;      // 'a'nima, 'd'ark, 'f'ire, 'i'ce, 'l'ight, 't'hunder, 'w'ind, 'h'eaven
     feClass job;        // character class
 
     feSupport supports; // support bonds from C - S/A+, see feSupport.h
-    feRank weaponRank;  // weapon proficiency from E-S, see feRank.h
+    feWeaponRank weaponRank;  // weapon proficiency from E-S, see feRank.h
 
     /**
      * STATS
@@ -45,7 +45,6 @@ class feCharacter {
     feStats bonus;      // bonus stats given to the unit
     feStats growth;     // stat growths of the unit
     int current_experience;     // Current amount of experience till leveling up
-    stats weapon_experience;    // Current amount of experience for each weapon type till leveling up
 
     /**
      * SKILLS
@@ -88,6 +87,13 @@ class feCharacter {
     feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j);
     void initStats();
     std::string printInfo();
+
+    //stats accessors
+    feStats getBaseStats() const { return base; }
+    feStats getCapStats() const { return cap; }
+    feStats getCurrentStats() const { return current; }
+    feStats getBonusStats() const { return bonus; }
+    feStats getGrowthStats() const { return growth; }
 };
 
 #endif
