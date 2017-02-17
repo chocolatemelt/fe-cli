@@ -84,7 +84,7 @@ class feCharacter {
      * Just have feCharacter extend from feClass and then implement any necessary
      * details.
      */
-    feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j);
+    feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j, feWeaponRank wr);
     void initStats();
     std::string printInfo();
 
@@ -94,6 +94,8 @@ class feCharacter {
     feStats getCurrentStats() const { return current; }
     feStats getBonusStats() const { return bonus; }
     feStats getGrowthStats() const { return growth; }
+
+    void addBonues(feStats morebonus);
 };
 
 #endif

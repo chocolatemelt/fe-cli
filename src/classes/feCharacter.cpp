@@ -1,12 +1,14 @@
 #include "feCharacter.h"
 
-feCharacter::feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j) {
+feCharacter::feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j, feWeaponRank wr) {
   uniqID = id;
   name = n;
   gender = g;
   loyalty = l;
-	affinity = a;
+  affinity = a;
   job = j;
+  //???
+  weaponRank = wr;
 
   /* initialize stats */
   initStats();
@@ -17,27 +19,18 @@ feCharacter::feCharacter(std::string id, std::string n, bool g, char l, char a, 
  * Initializes stats (does nothing for stats otherwise).
  */
 void feCharacter::initStats() {
-  base.emplace("str", 0);
-  base.emplace("mag", 0);
-  base.emplace("skl", 0);
-  base.emplace("spd", 0);
-  base.emplace("lck", 0);
-  base.emplace("def", 0);
-  base.emplace("res", 0);
-	base.emplace("con", 0);
-  base.emplace("mov", 0);
-
-  growth.emplace("str", 0);
-  growth.emplace("mag", 0);
-  growth.emplace("skl", 0);
-  growth.emplace("spd", 0);
-  growth.emplace("lck", 0);
-  growth.emplace("def", 0);
-  growth.emplace("res", 0);
-	growth.emplace("con", 0);
-  growth.emplace("mov", 0);
+  base.str = 0;
+  base.mag = 0;
+  base.skl = 0;
+  base.spd = 0;
+  base.lck = 0;
+  base.def = 0;
+  base.res = 0;
+  base.con = 0;
+  base.mov = 0;
 
   // copy
+  growth = base;
   cap = base;
   current = base;
   bonus = base;
@@ -62,4 +55,18 @@ std::string feCharacter::printInfo() {
 
 
   return id + name + g + loy;
+}
+
+void feCharacter::addBonues(feStats morebonus)
+{
+  bonus.hp += morebonus.hp;
+  bonus.str += morebonus.str;
+  bonus.mag += morebonus.mag;
+  bonus.skl += morebonus.skl;
+  bonus.spd += morebonus.spd;
+  bonus.lck += morebonus.lck;
+  bonus.def += morebonus.def;
+  bonus.res += morebonus.res;
+  bonus.con += morebonus.con;
+  bonus.mov += morebonus.mov;
 }
