@@ -11,6 +11,7 @@
 #include "feSkill.h"
 #include "feStats.h"
 #include "feSupport.h"
+#include "feWeapon.h"
 
 class feCharacter {
   private:
@@ -22,6 +23,7 @@ class feCharacter {
     feClass job;        // character class
 
     feSupport supports; // support bonds from C - S/A+, see feSupport.h
+                        // support other class or characters?
     feRank weaponRank;  // weapon proficiency from E-S, see feRank.h
 
     /**
@@ -39,13 +41,16 @@ class feCharacter {
      */
     int current_lvl;    // Level of character
     int internal_lvl;   // Total number of levels overall
+    //use this stat member
+    //refer to class stat member for max?
     feStats base;       // base stats of the unit
     feStats cap;        // capped maximum stat modifiers
     feStats current;    // current stats of the unit (without bonuses)
     feStats bonus;      // bonus stats given to the unit
     feStats growth;     // stat growths of the unit
     int current_experience;     // Current amount of experience till leveling up
-    stats weapon_experience;    // Current amount of experience for each weapon type till leveling up
+    //add another wepstat class? or weapons share same stats class as players
+    //stats weapon_experience;    // Current amount of experience for each weapon type till leveling up
 
     /**
      * SKILLS
@@ -86,8 +91,23 @@ class feCharacter {
      * details.
      */
     feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j);
+    //init uses feStats methods but its a struct
     void initStats();
     std::string printInfo();
+
+    void changeHp(int val);
+    bool ded();
+
+    //need for combat
+    feItem* getWep();
+    int getStr();
+    int getMag();
+    int getSkl();
+    int getLck();
+    int getSpd();
+    int getDef();
+    int getRes();
+    std::string getWeak();
 };
 
 #endif

@@ -34,7 +34,7 @@ void feCharacter::initStats() {
   growth.emplace("lck", 0);
   growth.emplace("def", 0);
   growth.emplace("res", 0);
-	growth.emplace("con", 0);
+  growth.emplace("con", 0);
   growth.emplace("mov", 0);
 
   // copy
@@ -63,3 +63,27 @@ std::string feCharacter::printInfo() {
 
   return id + name + g + loy;
 }
+
+void feCharacter::changeHp(int val)
+{
+  current.hp += val;
+}
+bool feCharacter::ded()
+{
+  if (current.hp <= 0)
+  { return true; }
+  return false;
+}
+
+feItem* feCharacter::getWep()
+{
+  return (feWeapon*)this->equipped;
+}
+int feCharacter::getStr() { return current.str; }
+int feCharacter::getMag() { return current.mag; }
+int feCharacter::getSkl() { return current.skl; }
+int feCharacter::getLck() { return current.lck; }
+int feCharacter::getSpd() { return current.spd; }
+int feCharacter::getRes() { return current.res; }
+int feCharacter::getDef() { return current.def; }
+std::string feCharacter::getWeak() { return job.getWeak(); }

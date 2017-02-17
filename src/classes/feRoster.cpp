@@ -20,5 +20,8 @@ void feRoster::add(feCharacter c) {
  * Lists the characters in the roster.
  */
 void feRoster::list() {
-	/* implementation */
+	for(unsigned int i = 0; i < roster.size(); ++i)
+	{
+		roster[i].printInfo();
+	}
 }
