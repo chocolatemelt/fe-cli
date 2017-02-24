@@ -28,13 +28,16 @@ private:
 
     std::unordered_map<feSkill, int> classSkills; // map of skills to level required
 
-		void initializeNameStats(std::string baseClassData);
+	void initializeNameStats(std::string baseClassData);
 
 public:
-		feClass();
+	feClass();
     feClass(std::string baseClassData);
     std::string getClassName();
-		std::vector<std::string> getWeaponTypes() const;
+	std::vector<std::string> getWeaponTypes() const;
+	feStats getBaseStats() { return base; }
+	feStats getCapStats() { return cap; }
+	feStats getGrowthStats() { return growth; }
 };
 
 #endif

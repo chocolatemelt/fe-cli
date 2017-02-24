@@ -29,11 +29,12 @@ class feCharacter {
      * Base stats can be anything.
      * Base caps modify the class caps. Reasonable numbers should be single digits.
      * Growths modify the class growths. I'm not sure if this is how it actually works.
-		 * A character's current stats are calculated from these stats and the class stats.
+     * A character's current stats are calculated from these stats and the class stats.
      */
     int current_lvl;    // Level of character
     int internal_lvl;   // Total number of levels overall
     feStats base;       // base stats of the unit
+    feStats current;    // current stats
     feStats cap;        // capped maximum stat modifiers
     feStats bonus;      // bonus stats given to the unit
     feStats growth;     // stat growths of the unit
@@ -73,7 +74,7 @@ class feCharacter {
 
   public:
     feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j);
-    void initStats();
+    void initStats(feClass c);
     std::string printInfo();
 
     feStats getBaseStats() const { return base; }

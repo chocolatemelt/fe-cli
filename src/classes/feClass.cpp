@@ -11,5 +11,10 @@ void feClass::initializeNameStats(std::string baseClassData) {
 }
 
 std::string feClass::getClassName() {
-	return class_name;
+	return name;
+}
+
+std::vector<std::string> feClass::getWeaponTypes() const
+{
+	return (weaponTypes);
 }

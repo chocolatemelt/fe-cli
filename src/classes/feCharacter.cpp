@@ -10,29 +10,23 @@ feCharacter::feCharacter(std::string id, std::string n, bool g, char l, char a, 
   weaponRank = feWeaponRank(j);
 
   /* initialize stats */
-  initStats();
+  initStats(j);
 }
 
 /**
  * zeroStats()
  * Initializes stats (does nothing for stats otherwise).
  */
-void feCharacter::initStats() {
-  base.str = 0;
-  base.mag = 0;
-  base.skl = 0;
-  base.spd = 0;
-  base.lck = 0;
-  base.def = 0;
-  base.res = 0;
-  base.con = 0;
-  base.mov = 0;
+void feCharacter::initStats(feClass c) {
+    feStats classbase = c.getBaseStats();
+    base = classbase;
+    current = base;
+    bonus = base;
 
-  // copy
-  growth = base;
-  cap = base;
-  current = base;
-  bonus = base;
+    feStats classgrowth = c.getGrowthStats();
+    growth = classgrowth;
+    feStats classcap = c.getCapStats();
+    cap = classcap;
 }
 
 std::string feCharacter::printInfo() {

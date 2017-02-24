@@ -10,7 +10,7 @@ class feWeaponRank {
 	private:
 		std::unordered_map< std::string, int > weaponRank;
 	public:
-		feWeaponRank(feClass f);
+		feWeaponRank(feClass j);
 		std::string getWeaponRanks(feClass f);
 		char getWeaponRank(std::string w);
 		void incWEx(int xp);
