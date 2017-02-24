@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "feSkill.h"
+#include "feStats.h"
 
 /**
  * Barebones class: will read in data about each class into a map and store in
@@ -14,14 +15,10 @@
 class feClass
 {
 private:
-    void initializeNameStats(std::string baseClassData);
-
-protected:
-    std::string class_name; // Name of class
-
-    int base_stats [8]; // HP, Str, Mag, Skl, Spd, Def, Res, Mov
-    int max_stats [8]; // Lvl, HP, Str, Mag, Skl, Spd, Def, Res
-    int growth_rates [7]; // HP, Str, Mag, Skl, Spd, Def, Res
+    std::string name;
+    feStats base;
+    feStats cap;
+    feStats growth;
 
     std::vector<std::string> weapon_types; // Usable weapon types
 
@@ -35,10 +32,13 @@ protected:
     bool class_weakness; // True = weak to something, False = no weakness
     std::string weakness; // Not really what it's weak to, but what makes it weak to things
 
+		void initializeNameStats(std::string baseClassData);
+
 public:
 		feClass();
     feClass(std::string baseClassData);
     std::string getClassName();
+		std::vector<std::string> getWeaponTypes() const;
 };
 
 #endif
