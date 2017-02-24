@@ -15,11 +15,11 @@ int feUtils::feRNG() {
  * NOTE: Make sure to check whether using a physical or magical weapon prior to
  * using this method
  * @param
- *    character_stats: vector of ints containing
- *    values of the necessary character/weapon stats needed
- *    for calculating the actual attack of a character
+ *    character_stats: feStats object which has character str/mag
+ *    isPhys: determines str or mag use
+ *    mt: weapon bonus
  *
- * @modifies attack - use to calculate base attack without any modifiers
+ * @modifies attack - use to calculate base attack
  */
 void feUtils::setBaseAttack(const feStats& character_stats, bool isPhys, int mt) {
     attack = 0;
@@ -35,16 +35,10 @@ void feUtils::setBaseAttack(const feStats& character_stats, bool isPhys, int mt)
 /**
  * void setBaseHitRate()
  * @param
- *    weapon_stats: vector of ints containing
- *    values of the necessary character/weapon stats needed
- *    for calculating the actual hit rate of a character
- *    rank: a character representing a character's
- *    weapon rank (capital letter)
- *    buffOrDebuff: an integer representing whether it's
- *    debuff or buff to character
+ *    weapon_stats: feStats object with skl and lck stats
+ *    hr: weapon hit rate
  *
- * @modifies hit_rate - use to calculate base hit rate without
- * any modifiers
+ * @modifies hit_rate - use to calculate base hit rate
  */
 void feUtils::setBaseHitRate(const feStats& character_stats, int hr) {
     hit_rate = 0;
@@ -55,9 +49,8 @@ void feUtils::setBaseHitRate(const feStats& character_stats, int hr) {
 /**
  * void setBaseCritical()
  * @param
- *    character_stats: vector of ints containing
- *    values of the necessary character/weapon stats needed
- *    for calculating the actual critical rate of a character
+ *    character_stats: feStats object with skl
+ *    crit: weapon critical rate
  *
  * @modifies critical - use to calculate base critical chance without
  * any modifiers
@@ -71,9 +64,7 @@ void feUtils::setBaseCritical(const feStats& character_stats, int crit) {
 /**
  * void setBaseAvoid()
  * @param
- *    character_stats: vector of ints containing
- *    values of the necessary character/weapon stats needed
- *    for calculating the actual avoid rate of a character
+ *    character_stats: feStats object with spd and lck
  *
  * @modifies avoid - use to calculate base avoid of character without
  * any modifiers
@@ -86,9 +77,8 @@ void feUtils::setBaseAvoid(const feStats& character_stats) {
 /**
  * void setBaseRating()
  * @param
- *    character_stats: vector of ints containing
- *    values of the necessary character/weapon stats needed
- *    for calculating the rating of a character
+ *    character_stats: feStats object
+ *    isPhys: determines str or mag use
  *
  * @modifies rating - use to calculate base rating of character without
  * any modifiers
@@ -113,43 +103,59 @@ void feUtils::setBaseRating(const feStats& character_stats, bool isPhys) {
  * about to initiate combat
  * @param
  *      rank: a character representing a character's weapon rank (capital letter)
- *      buffOrDebuff: an integer representing whether it's debuff or buff to character
+ *      buff: an integer representing whether it's debuff or buff to character
  */
-void feUtils::weaponTriangle(const char rank, const int buffOrDebuff) {
+void feUtils::weaponTriangle(const char rank, const int buff) {
     // Buff
-    if(buffOrDebuff == 1)
+    if(buff == 1)
     {
-        if(rank == 'E' || rank == 'D')
-            hit_rate += 5;
-        else if(rank == 'C')
-            hit_rate += 10;
-        else if(rank == 'B')
+        switch (rank)
         {
-            hit_rate += 10;
-            attack += 1;
-        }
-        else if(rank == 'A')
-        {
-            hit_rate += 15;
-            attack += 1;
+            default:        //no rank provided
+                break;
+            case 'E':       //otherwise provide bonus according to rank
+                hit_rate += 5;
+                break;
+            case 'D':
+                hit_rate += 5;
+                break;
+            case 'C':
+                hit_rate += 10;
+                break;
+            case 'B':
+                hit_rate += 10;
+                attack += 1;
+                break;
+            case 'A':
+                hit_rate += 15;
+                attack += 1;
+                break;
         }
     }
     // Debuff
     else
     {
-        if(rank == 'E' || rank == 'D')
-            hit_rate -= 5;
-        else if(rank == 'C')
-            hit_rate -= 10;
-        else if(rank == 'B')
+        switch (rank)
         {
-            hit_rate -= 10;
-            attack -= 1;
-        }
-        else if(rank == 'A')
-        {
-            hit_rate -= 15;
-            attack -= 1;
+            default:        //no rank provided
+                break;
+            case 'E':       //otherwise provide bonus according to rank
+                hit_rate -= 5;
+                break;
+            case 'D':
+                hit_rate -= 5;
+                break;
+            case 'C':
+                hit_rate -= 10;
+                break;
+            case 'B':
+                hit_rate -= 10;
+                attack -= 1;
+                break;
+            case 'A':
+                hit_rate -= 15;
+                attack -= 1;
+                break;
         }
     }
 }
@@ -166,47 +172,70 @@ void feUtils::weaponRankBonus(const char rank, const std::string &weapon_type)
 {
     if(weapon_type == "Sword")
     {
-        if(rank == 'A')
-            attack += 3;
-        else if(rank == 'B')
-            attack += 2;
-        else if(rank == 'C')
-            attack += 1;
+        switch (rank)
+        {
+            default:
+                break;
+            case 'A':
+                attack += 3;
+            case 'B':
+                attack += 2;
+            case 'C':
+                attack += 1;
+        }
     }
     else if(weapon_type == "Lance" || weapon_type == "Bow" || weapon_type == "Tome")
     {
-        if(rank == 'A')
+        switch (rank)
         {
-            attack += 2;
-            hit_rate += 5;
+            default:
+                break;
+            case 'A':
+                attack += 2;
+                hit_rate += 5;
+                break;
+            case 'B':
+                attack += 1;
+                hit_rate += 5;
+                break;
+            case 'C':
+                attack += 1;
+                break;
         }
-        else if(rank == 'B')
-        {
-            attack += 1;
-            hit_rate += 5;
-        }
-        else if(rank == 'C')
-            attack += 1;
     }
     else if(weapon_type == "Axe")
     {
-        if(rank == 'A')
+        switch (rank)
         {
-            attack += 1;
-            hit_rate += 10;
+            default:
+                break;
+            case 'A':
+                attack += 1;
+                hit_rate += 10;
+                break;
+            case 'B':
+                hit_rate += 10;
+                break;
+            case 'C':
+                hit_rate += 5;
+                break;
         }
-        else if(rank == 'B')
-            hit_rate += 10;
-        else if(rank == 'C')
-            hit_rate += 5;
     }
     else if(weapon_type == "Staff")
     {
-        if(rank == 'A')
-            recovery_amount += 3;
-        else if (rank == 'B')
-            recovery_amount += 2;
-        else if(rank == 'C')
-            recovery_amount += 1;
+        switch (rank)
+        {
+            default:
+                break;
+            case 'A':
+                recovery_amount += 3;
+                break;
+            case 'B':
+                recovery_amount += 2;
+                break;
+            case 'C':
+                recovery_amount += 1;
+                break;
+        }
     }
 }

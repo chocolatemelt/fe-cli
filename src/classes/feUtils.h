@@ -50,7 +50,7 @@ class feUtils {
       void setBaseAvoid(const feStats& character_stats);
       void setBaseRating(const feStats& character_stats, bool isPhys);
 
-      void weaponTriangle(const char rank, const int buffOrDebuff);
+      void weaponTriangle(const char rank, const int buff);
       void weaponRankBonus(const char rank, const std::string &weapon_type);
 
   private:
