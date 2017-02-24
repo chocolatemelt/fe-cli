@@ -1,8 +1,10 @@
 #ifndef CLASS_H
 #define CLASS_H
 
-#include <vector>
 #include <string>
+#include <unordered_map>
+#include <vector>
+
 #include "feSkill.h"
 #include "feStats.h"
 
@@ -20,17 +22,11 @@ private:
     feStats cap;
     feStats growth;
 
-    std::vector<std::string> weapon_types; // Usable weapon types
+    std::vector<std::string> weaponTypes;
 
-    std::vector<std::string> promotion_classes; // Vector of possible classes to promote to
+    std::vector<std::string> promotions; // possible classes to reclass to from here
 
-    bool special; // True = special class -> item, False = standard class
-    std::string special_item; // Needed special item to change into class
-
-    std::vector<feSkill> class_skills; // Vector of class skills
-
-    bool class_weakness; // True = weak to something, False = no weakness
-    std::string weakness; // Not really what it's weak to, but what makes it weak to things
+    std::unordered_map<feSkill, int> classSkills; // map of skills to level required
 
 		void initializeNameStats(std::string baseClassData);
 
