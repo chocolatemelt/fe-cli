@@ -95,7 +95,7 @@ class feCharacter {
     feStats getBonusStats() const { return bonus; }
     feStats getGrowthStats() const { return growth; }
 
-    void addBonues(feStats morebonus);
+    void addBonuses(feStats b);
 };
 
 #endif
