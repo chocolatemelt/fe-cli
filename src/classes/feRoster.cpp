@@ -19,6 +19,13 @@ void feRoster::add(feCharacter c) {
 /**
  * Lists the characters in the roster.
  */
-void feRoster::list() {
-	/* implementation */
+std::string feRoster::list() {
+	std::string allchar = "";
+	for(unsigned int i = 0; i < roster.size(); ++i)
+	{
+		allchar += roster[i].printInfo();
+		allchar += "\n";
+	}
+
+	return allchar;
 }
