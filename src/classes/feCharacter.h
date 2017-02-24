@@ -26,22 +26,15 @@ class feCharacter {
 
     /**
      * STATS
-     * Stats and stat growths are each unordered maps. Keys should not
-     * be added or removed. This removes the need for publicly
-     * exposed variables and/or vast amounts of mutator/accessor
-     * methods for each stat while also providing amortized
-     * O(1) lookups.
      * Base stats can be anything.
-     * Base caps modify the class caps. Reasonable numbers should
-     * be single digits (positive or negative).
+     * Base caps modify the class caps. Reasonable numbers should be single digits.
      * Growths modify the class growths. I'm not sure if this is how it actually works.
-     * Current does NOT include bonuses for easier outputting.
+		 * A character's current stats are calculated from these stats and the class stats.
      */
     int current_lvl;    // Level of character
     int internal_lvl;   // Total number of levels overall
     feStats base;       // base stats of the unit
     feStats cap;        // capped maximum stat modifiers
-    feStats current;    // current stats of the unit (without bonuses)
     feStats bonus;      // bonus stats given to the unit
     feStats growth;     // stat growths of the unit
     int current_experience;     // Current amount of experience till leveling up
@@ -79,19 +72,12 @@ class feCharacter {
     bool mainPair;
 
   public:
-    /**
-     * Instead of making an feClass that just returns a character
-     * Just have feCharacter extend from feClass and then implement any necessary
-     * details.
-     */
     feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j);
     void initStats();
     std::string printInfo();
 
-    //stats accessors
     feStats getBaseStats() const { return base; }
     feStats getCapStats() const { return cap; }
-    feStats getCurrentStats() const { return current; }
     feStats getBonusStats() const { return bonus; }
     feStats getGrowthStats() const { return growth; }
 
