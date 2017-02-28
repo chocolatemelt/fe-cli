@@ -14,8 +14,7 @@
  * stats must be taken from a conglomeration of class stats and base stats,
  * have characters define the getters/setters of their stats.
  */
-class feClass
-{
+class feClass {
 private:
     std::string name;
     feStats base;
@@ -26,7 +25,7 @@ private:
 
     std::vector<std::string> promotions; // possible classes to reclass to from here
 
-    std::unordered_map<feSkill, int> classSkills; // map of skills to level required
+    std::unordered_map<int, feSkill> classSkills; // map of level to learnable skill
 
 	void initializeNameStats(std::string baseClassData);
 

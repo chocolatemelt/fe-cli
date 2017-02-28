@@ -1,9 +1,11 @@
 #ifndef SKILL_H
 #define SKILL_H
 
+#include <string>
+
 class feSkill {
   private:
-  public:
+		std::string name;
 };
 
 #endif
