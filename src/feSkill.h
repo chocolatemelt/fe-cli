@@ -4,10 +4,8 @@
 #include <string>
 
 class feSkill {
-  private:
+	private:
 		std::string name;
-	public:
-		char getType() = 0;
 };
 
 #endif

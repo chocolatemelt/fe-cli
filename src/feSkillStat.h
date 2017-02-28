@@ -4,9 +4,7 @@
 #include "feSkill.h"
 
 class feSkillStat : public feSkill {
-	private:
 	public:
-		void getType() { return 's'; }
 		virtual feStats apply();
 }
 
