@@ -7,7 +7,7 @@ class feSkill {
   private:
 		std::string name;
 	public:
-		char getType() = 0;
+		virtual char getType() = 0;
 };
 
 #endif
