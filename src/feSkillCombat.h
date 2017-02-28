@@ -1,8 +1,9 @@
 #ifndef SKILLCOMBAT_H
 #define SKILLCOMBAT_H
 
-#include "feSkill.h"
 #include "feCharacter.h"
+#include "feSkill.h"
+#include "feStats.h"
 
 class feSkillCombat : public feSkill {
 	public:
