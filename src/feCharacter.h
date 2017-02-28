@@ -81,8 +81,6 @@ class feCharacter {
     feStats getCapStats() const { return cap; }
     feStats getBonusStats() const { return bonus; }
     feStats getGrowthStats() const { return growth; }
-
-    void addBonuses(feStats b);
 };
 
 #endif

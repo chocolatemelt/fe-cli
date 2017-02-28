@@ -2,6 +2,7 @@
 #define SKILLMAP_H
 
 #include "feSkill.h"
+#include "feStats.h"
 
 class feSkillMap : public feSkill
 {

@@ -49,17 +49,3 @@ std::string feCharacter::printInfo() {
 
   return id + name + g + loy;
 }
-
-void feCharacter::addBonuses(feStats b)
-{
-  bonus.hp += b.hp;
-  bonus.str += b.str;
-  bonus.mag += b.mag;
-  bonus.skl += b.skl;
-  bonus.spd += b.spd;
-  bonus.lck += b.lck;
-  bonus.def += b.def;
-  bonus.res += b.res;
-  bonus.con += b.con;
-  bonus.mov += b.mov;
-}
