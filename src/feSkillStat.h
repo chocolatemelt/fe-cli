@@ -2,12 +2,13 @@
 #define SKILLSTAT_H
 
 #include "feSkill.h"
+#include "feStats.h"
 
 class feSkillStat : public feSkill {
 	private:
 	public:
-		void getType() { return 's'; }
+		char getType() { return 's'; }
 		virtual feStats apply();
-}
+};
 
 #endif
