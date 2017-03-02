@@ -19,7 +19,9 @@ include_directories(
   ${CURSES_INCLUDE_DIR},
   ${PROJECT_SOURCE_DIR}/src/classes
 )
-file(GLOB FE-CLI_SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp)
+
+# we should... explicitly list these
+file(GLOB FE-CLI_SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp ${PROJECT_SOURCE_DIR}/src/skills/*cpp)
 
 # create executables!
 add_executable(fe-cli ${PROJECT_SOURCE_DIR}/src/main.cpp ${FE-CLI_SOURCES})
