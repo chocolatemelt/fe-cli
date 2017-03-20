@@ -23,6 +23,11 @@ include_directories(
 # we should... explicitly list these
 file(GLOB FE-CLI_SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp ${PROJECT_SOURCE_DIR}/src/skills/*cpp)
 
+#example
+set(FE-CLI_SOURCES
+	feCharacter.cpp
+)
+
 # create executables!
 add_executable(fe-cli ${PROJECT_SOURCE_DIR}/src/main.cpp ${FE-CLI_SOURCES})
 add_executable(fe-test ${PROJECT_SOURCE_DIR}/src/tests.cpp ${FE-CLI_SOURCES})
