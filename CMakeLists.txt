@@ -16,7 +16,7 @@ find_package(Curses REQUIRED)
 
 # include directories
 include_directories(
-  ${CURSES_INCLUDE_DIR},
+	${CURSES_INCLUDE_DIR},
 	${PROJECT_SOURCE_DIR}/src
 )
 
@@ -39,6 +39,7 @@ set(FE-CLI_SOURCES
 	src/feVendor.cpp
 	src/feWeapon.cpp
 	src/feWeaponRank.cpp
+	src/lib/jsoncpp.cpp
 )
 
 # create executables!
