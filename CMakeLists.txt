@@ -21,11 +21,27 @@ include_directories(
 )
 
 # we should... explicitly list these
-file(GLOB FE-CLI_SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp ${PROJECT_SOURCE_DIR}/src/skills/*cpp)
+#file(GLOB FE-CLI_SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp ${PROJECT_SOURCE_DIR}/src/skills/*cpp)
 
 #example
 set(FE-CLI_SOURCES
 	feCharacter.cpp
+	feClass.cpp
+	feConsumable.cpp
+	feItem.cpp
+	feMap.cpp
+	feMechanics.cpp
+	feRoster.cpp
+	feSkill.cpp
+	feSkillCombat.cpp
+	feSkillMap.cpp
+	feSkillStat.cpp
+	feStats.cpp
+	feSupport.cpp
+	feUtils.cpp
+	feVendor.cpp
+	feWeapon.cpp
+	feWeaponRank.cpp
 )
 
 # create executables!
