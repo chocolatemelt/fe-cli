@@ -17,31 +17,28 @@ find_package(Curses REQUIRED)
 # include directories
 include_directories(
   ${CURSES_INCLUDE_DIR},
-  ${PROJECT_SOURCE_DIR}/src/classes
+	${PROJECT_SOURCE_DIR}/src
 )
-
-# we should... explicitly list these
-#file(GLOB FE-CLI_SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp ${PROJECT_SOURCE_DIR}/src/skills/*cpp)
 
 #example
 set(FE-CLI_SOURCES
-	feCharacter.cpp
-	feClass.cpp
-	feConsumable.cpp
-	feItem.cpp
-	feMap.cpp
-	feMechanics.cpp
-	feRoster.cpp
-	feSkill.cpp
-	feSkillCombat.cpp
-	feSkillMap.cpp
-	feSkillStat.cpp
-	feStats.cpp
-	feSupport.cpp
-	feUtils.cpp
-	feVendor.cpp
-	feWeapon.cpp
-	feWeaponRank.cpp
+	src/feCharacter.cpp
+	src/feClass.cpp
+	src/feConsumable.cpp
+	src/feItem.cpp
+	src/feMap.cpp
+	src/feMechanics.cpp
+	src/feRoster.cpp
+	src/feSkill.cpp
+	src/feSkillCombat.cpp
+	src/feSkillMap.cpp
+	src/feSkillStat.cpp
+	src/feStats.cpp
+	src/feSupport.cpp
+	src/feUtils.cpp
+	src/feVendor.cpp
+	src/feWeapon.cpp
+	src/feWeaponRank.cpp
 )
 
 # create executables!
