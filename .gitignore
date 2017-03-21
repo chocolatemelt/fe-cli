@@ -47,3 +47,7 @@ CTestTestfile.cmake
 # Project specific files
 bin
 build
+
+# CLion specific files
+.idea
+cmake-build-debug
