@@ -4,14 +4,14 @@ fe-cli
 FE-CLI puts the Fire Emblem tactical RPG gameplay in your terminal! Built for extensibility, flexibility, and faithfulness to the originals.
 Read the docs for more information.
 
-requirements
+Requirements
 ------------
 
  * CMake 2.8+
  * ncurses
  * a lot of terminal real estate
 
-build & install
+Build & Install
 ---------------
 
 ### *nix
@@ -40,7 +40,7 @@ Building through the terminal is the exact same as *nix systems; just run the ab
 
 ![babun/cygwin build](screenshots/win_compile.png)
 
-controls
+Controls
 --------
 
  * WASD / arrow keys - move
