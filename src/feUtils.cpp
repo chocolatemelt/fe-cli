@@ -1,4 +1,5 @@
 #include "feUtils.h"
+
 #include <cmath>
 
 /**
@@ -105,7 +106,8 @@ void feUtils::setBaseRating(const feStats& character_stats, bool isPhys) {
  *      rank: a character representing a character's weapon rank (capital letter)
  *      buff: an integer representing whether it's debuff or buff to character
  */
-void feUtils::weaponTriangle(const char rank, const int buff) {
+void feUtils::weaponTriangle(const char rank, const int buff)
+{
     // Buff
     if(buff == 1)
     {

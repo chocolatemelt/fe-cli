@@ -1,11 +1,12 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-#include <string>
+#include "feStats.h"
+
 #include <random>
+#include <string>
 #include <time.h>
 #include <vector>
-#include "feStats.h"
 
 class feUtils {
   public:
