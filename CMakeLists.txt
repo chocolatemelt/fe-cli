@@ -20,7 +20,6 @@ include_directories(
 	${PROJECT_SOURCE_DIR}/src
 )
 
-#example
 set(FE-CLI_SOURCES
 	src/feCharacter.cpp
 	src/feClass.cpp
