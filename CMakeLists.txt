@@ -39,7 +39,6 @@ set(FE-CLI_SOURCES
 	src/feVendor.cpp
 	src/feWeapon.cpp
 	src/feWeaponRank.cpp
-	src/lib/jsoncpp.cpp
 )
 
 # create executables!
