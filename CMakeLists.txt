@@ -25,6 +25,7 @@ set(FE-CLI_SOURCES
 	src/feClass.cpp
 	src/feConsumable.cpp
 	src/feItem.cpp
+	src/feJsonUtils.cpp
 	src/feMap.cpp
 	src/feMechanics.cpp
 	src/feRoster.cpp
