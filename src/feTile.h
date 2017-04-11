@@ -4,9 +4,9 @@
 #include <string>
 
 class Tile {
-private:
-    std::string type;
-public:
+	private:
+		std::string type;
+	public:
 }
 
 #endif

@@ -9,28 +9,28 @@
 #include "feStats.h"
 
 class feClass {
-private:
-    std::string name;
-    feStats base;
-    feStats cap;
-    feStats growth;
+	private:
+		std::string name;
+		feStats base;
+		feStats cap;
+		feStats growth;
 
-    std::vector<std::string> weaponTypes;
+		std::vector<std::string> weaponTypes;
 
-    std::vector<std::string> promotions; // possible classes to reclass to from here
+		std::vector<std::string> promotions; // possible classes to reclass to from here
 
-    std::unordered_map<int, feSkill> classSkills; // map of level to learnable skill
+		std::unordered_map<int, feSkill> classSkills; // map of level to learnable skill
 
-	void initializeNameStats(std::string baseClassData);
+		void initializeNameStats(std::string baseClassData);
 
-public:
-	feClass();
-    feClass(std::string baseClassData);
-    std::string getClassName();
-	std::vector<std::string> getWeaponTypes() const;
-	feStats getBaseStats() { return base; }
-	feStats getCapStats() { return cap; }
-	feStats getGrowthStats() { return growth; }
+	public:
+		feClass();
+		feClass(std::string baseClassData);
+		std::string getClassName();
+		std::vector<std::string> getWeaponTypes() const;
+		feStats getBaseStats() { return base; }
+		feStats getCapStats() { return cap; }
+		feStats getGrowthStats() { return growth; }
 };
 
 #endif

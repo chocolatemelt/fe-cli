@@ -9,7 +9,7 @@ class feRoster {
 	private:
 		std::string name;
 		std::vector<feCharacter> roster;
-	public: 
+	public:
 		feRoster(std::string n);
 		feRoster(std::string n, std::vector<feCharacter> r);
 		void add(feCharacter c);
