@@ -26,7 +26,7 @@ class feClass {
 	public:
 		feClass();
 		feClass(std::string baseClassData);
-		std::string getClassName();
+		std::string getClassName() { return name; }
 		std::vector<std::string> getWeaponTypes() const;
 		feStats getBaseStats() { return base; }
 		feStats getCapStats() { return cap; }
