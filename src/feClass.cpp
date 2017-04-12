@@ -14,3 +14,7 @@ std::vector<std::string> feClass::getWeaponTypes() const
 {
 	return (weaponTypes);
 }
+
+std::vector<std::string> feClass::getPromotions() const {
+	return (promotions);
+}

@@ -28,6 +28,7 @@ class feClass {
 		feClass(std::string baseClassData);
 		std::string getClassName() { return name; }
 		std::vector<std::string> getWeaponTypes() const;
+		std::vector<std::string> getPromotions() const;
 		feStats getBaseStats() { return base; }
 		feStats getCapStats() { return cap; }
 		feStats getGrowthStats() { return growth; }
