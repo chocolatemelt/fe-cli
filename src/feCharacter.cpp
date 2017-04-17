@@ -14,7 +14,7 @@ feCharacter::feCharacter(std::string id, std::string n, bool g, char l, char a, 
 	}
 
 /**
- * zeroStats()
+ * initStats(feClass c)
  * Initializes stats (does nothing for stats otherwise).
  */
 void feCharacter::initStats(feClass c) {
@@ -29,6 +29,10 @@ void feCharacter::initStats(feClass c) {
 	cap = classcap;
 }
 
+/**
+ * printStats()
+ * Simple printout of character information.
+ */
 std::string feCharacter::printInfo() {
 
 	std::stringstream ss;

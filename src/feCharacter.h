@@ -26,10 +26,14 @@ class feCharacter {
 
 		/**
 		 * STATS
-		 * Base stats can be anything.
+		 * Base stats are completely unmodified, i.e. excluding class skills.
+		 * Bonus stats include the rest, such as HP tonics, the HP+5 skill, etc.
+		 * Bonus stats are not the same as buffs / debuffs.
+		 * 
 		 * Base caps modify the class caps. Reasonable numbers should be single digits.
-		 * Growths modify the class growths. I'm not sure if this is how it actually works.
-		 * A character's current stats are calculated from these stats and the class stats.
+		 * Growths modify the class growths.
+		 * A character's starting stats are calculated from base stats and bonus stats.
+		 * A character's current stats are modified by damage, weapons, debuffs, and buffs.
 		 */
 		int current_lvl;    // Level of character
 		int internal_lvl;   // Total number of levels overall
