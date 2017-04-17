@@ -7,6 +7,9 @@ class Tile {
 	private:
 		std::string type;
 	public:
+		feTile(char t);
+		feTile(const char &t);
+		feStats getBonuses();
 }
 
 #endif
