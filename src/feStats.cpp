@@ -15,10 +15,20 @@ bool feStats::operator==(const feStats &rhs) const {
 			&& mov == rhs.mov);
 }
 
+feStats feStats::operator%(const feStats &rhs) const {
+	feStats ret;
+}
+
 feStats feStats::operator+(const feStats &rhs) const {
 }
 
 feStats feStats::operator-(const feStats &rhs) const {
+}
+
+feStats feStats::operator*(const feStats &rhs) const {
+}
+
+feStats feStats::operator/(const feStats &rhs) const {
 }
 
 feStats &feStats::operator=(const feStats &rhs) {
@@ -28,4 +38,10 @@ feStats &feStats::operator+=(const feStats &rhs) {
 }
 
 feStats &feStats::operator-=(const feStats &rhs) {
+}
+
+feStats &feStats::operator*=(const feStats &rhs) {
+}
+
+feStats &feStats::operator/=(const feStats &rhs) {
 }
