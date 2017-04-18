@@ -2,6 +2,7 @@
 #define STATS_H
 
 struct feStats {
+	static const feStats ZERO;
 	int hp;
 	int str;
 	int mag;

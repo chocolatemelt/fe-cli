@@ -14,7 +14,7 @@ feCharacter::feCharacter(std::string id, std::string n, bool g, char l, char a, 
 	}
 
 /**
- * initStats(feClass c)
+ * void initStats(feClass c)
  * Initializes stats (does nothing for stats otherwise).
  */
 void feCharacter::initStats(feClass c) {
@@ -30,7 +30,16 @@ void feCharacter::initStats(feClass c) {
 }
 
 /**
- * printStats()
+ * void resetStats()
+ * Resets stats to default state; useful to run as a post-map
+ * hook.
+ */
+void feCharacter::resetStats() {
+	bonus = feStats::ZERO;
+}
+
+/**
+ * string printStats()
  * Simple printout of character information.
  */
 std::string feCharacter::printInfo() {
