@@ -1,13 +1,12 @@
 /*
  * feJsonUtils.cpp
  *
- * implementations to turn feClass, feChar, and feItem into JSON
- * uses nlohmann's JSON header file
+ * Generic static methods to turn feClass, feChar, and feItem into JSON.
  */
 
 #include "feJsonUtils.h"
 
-static std::vector<int> stattovector(feStats stats) {
+std::vector<int> stattovector(feStats stats) {
 	std::vector<int> ret;
 	ret.push_back(stats.hp);
 	ret.push_back(stats.str);
@@ -23,7 +22,7 @@ static std::vector<int> stattovector(feStats stats) {
 	return ret;
 }
 
-static json feJsonUtils::exportClass(feClass cls) {
+json feJsonUtils::exportClass(feClass cls) {
 	json jsonClass;
 
 	jsonClass["name"] = cls.getClassName();
