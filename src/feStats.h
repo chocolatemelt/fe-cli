@@ -13,6 +13,14 @@ struct feStats {
 	int res;
 	int con;
 	int mov;
+
+	bool operator==(const feStats &) const;
+	feStats operator+(const feStats &) const;
+	feStats operator-(const feStats &) const;
+
+	feStats &operator=(const feStats &);
+	feStats &operator+=(const feStats &);
+	feStats &operator-=(const feStats &);
 };
 
 #endif
