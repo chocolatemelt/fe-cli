@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 
+#include "feBonus.h"
 #include "feClass.h"
 #include "feItem.h"
 #include "feSkill.h"
@@ -33,16 +34,27 @@ class feCharacter {
 		 * Base caps modify the class caps. Reasonable numbers should be single digits.
 		 * Growths modify the class growths.
 		 * A character's starting stats are calculated from base stats and bonus stats.
-		 * A character's current stats are modified by damage, weapons, debuffs, and buffs.
+		 * A character's current stats are modified by damage, weapons, and bonuses
 		 */
-		int current_lvl;    // Level of character
-		int internal_lvl;   // Total number of levels overall
+		int current_lvl;    // level of character
+		int internal_lvl;   // total number of levels overall
 		feStats base;       // base stats of the unit
 		feStats current;    // current stats
 		feStats cap;        // capped maximum stat modifiers
 		feStats bonus;      // bonus stats given to the unit
 		feStats growth;     // stat growths of the unit
-		int current_experience;     // Current amount of experience till leveling up
+		std::vector<feBonus *> bonus; // bonuses applied to this character
+		int current_experience;       // current amount of experience till leveling up
+
+		/**
+		 * COMBAT STATS
+		 * These are secondary stats modified by current stats and weapons.
+		 * These are the bases used in many of the combat calculations used.
+		 */
+		int attack;
+		int avoid;
+		int critical;
+		int hitrate;
 
 		/**
 		 * SKILLS
@@ -50,8 +62,8 @@ class feCharacter {
 		 * and another for inactive skills.
 		 * Learning them is handled by the feClass.
 		 */
-		std::vector< feSkill > activeSkills;
-		std::vector< feSkill > inactiveSkills;
+		std::vector<feSkill> activeSkills;
+		std::vector<feSkill> inactiveSkills;
 
 		/**
 		 * ITEMS
@@ -61,7 +73,7 @@ class feCharacter {
 		 * Note that convoy items are stored in the feRoster object, and
 		 * not on any characters.
 		 */
-		std::vector< feItem * > bag;
+		std::vector<feItem *> bag;
 		feItem *equipped;
 
 		/**
@@ -78,7 +90,10 @@ class feCharacter {
 
 	public:
 		feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j);
+
+		void equip(feWeapon *);
 		void initStats(feClass c);
+		void recalculateStats();
 		void resetStats();
 		std::string printInfo();
 

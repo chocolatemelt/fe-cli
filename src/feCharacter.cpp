@@ -16,6 +16,8 @@ feCharacter::feCharacter(std::string id, std::string n, bool g, char l, char a, 
 /**
  * void initStats(feClass c)
  * Initializes stats (does nothing for stats otherwise).
+ * @param
+ *     c - class to initialize stats with
  */
 void feCharacter::initStats(feClass c) {
 	feStats classbase = c.getBaseStats();
@@ -30,12 +32,20 @@ void feCharacter::initStats(feClass c) {
 }
 
 /**
+ * void recalculateStats()
+ * Recalculates all stats, including secondary combat stats.
+ */
+void feCharacter::recalculateStats() {
+	// TODO: update the current stats of the character
+}
+
+/**
  * void resetStats()
- * Resets stats to default state; useful to run as a post-map
- * hook.
+ * Resets stats to default state; useful to run as a post-map hook.
  */
 void feCharacter::resetStats() {
 	bonus = feStats::ZERO;
+	// TODO: update current stats of the character
 }
 
 /**
