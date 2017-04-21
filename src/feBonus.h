@@ -9,4 +9,6 @@ struct feBonus {
 
 	bool tick();
 	bool invariant();
-}
+};
+
+#endif
