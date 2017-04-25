@@ -5,12 +5,13 @@
 #include <string>
 #include <vector>
 
-#include "feBonus.h"
+#include "feBuff.h"
 #include "feClass.h"
 #include "feItem.h"
 #include "feSkill.h"
 #include "feStats.h"
 #include "feSupport.h"
+#include "feWeapon.h"
 #include "feWeaponRank.h"
 
 class feCharacter {
@@ -43,7 +44,7 @@ class feCharacter {
 		feStats cap;        // capped maximum stat modifiers
 		feStats bonus;      // bonus stats given to the unit
 		feStats growth;     // stat growths of the unit
-		std::vector<feBonus *> bonus; // bonuses applied to this character
+		std::vector<feBuff *> buff; // bonuses applied to this character
 		int current_experience;       // current amount of experience till leveling up
 
 		/**

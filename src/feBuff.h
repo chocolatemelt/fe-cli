@@ -3,7 +3,7 @@
 
 #include "feStats.h"
 
-struct feBonus {
+struct feBuff {
 	feStats bonus;
 	feStats reduction;
 

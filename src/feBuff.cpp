@@ -1,4 +1,4 @@
-#include "feBonus.h"
+#include "feBuff.h"
 
 /**
  * void tick()
@@ -6,7 +6,9 @@
  * reduce to 0 at some point.
  * @returns true when tick has hit 0, false otherwise
  */
-bool feBonus::tick() {
+bool feBuff::tick() {
+	bonus /= reduction;
+	return bonus == feStats::ZERO;
 }
 
 /**
@@ -16,5 +18,5 @@ bool feBonus::tick() {
  * can't correctly end and free the buff.
  * @returns true if invariant is fulfilled, false otherwise
  */
-bool feBonus::invariant() {
+bool feBuff::invariant() {
 }

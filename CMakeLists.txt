@@ -21,7 +21,7 @@ include_directories(
 )
 
 set(FE-CLI_SOURCES
-	src/feBonus.cpp
+        src/feBuff.cpp
 	src/feCharacter.cpp
 	src/feClass.cpp
 	src/feConsumable.cpp
