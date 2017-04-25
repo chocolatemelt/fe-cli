@@ -32,28 +32,122 @@ feStats feStats::operator%(const feStats &rhs) const {
 }
 
 feStats feStats::operator+(const feStats &rhs) const {
+	feStats sum = {
+		hp  += rhs.hp,
+		str += rhs.str,
+		mag += rhs.mag,
+		skl += rhs.skl,
+		lck += rhs.lck,
+		def += rhs.def,
+		res += rhs.res,
+		con += rhs.con,
+		mov += rhs.mov};
+	return sum;
 }
 
 feStats feStats::operator-(const feStats &rhs) const {
+	feStats diff = {
+		hp  -= rhs.hp,
+		str -= rhs.str,
+		mag -= rhs.mag,
+		skl -= rhs.skl,
+		lck -= rhs.lck,
+		def -= rhs.def,
+		res -= rhs.res,
+		con -= rhs.con,
+		mov -= rhs.mov};
+	return diff;
 }
 
 feStats feStats::operator*(const feStats &rhs) const {
+	feStats prod = {
+		hp  *= rhs.hp,
+		str *= rhs.str,
+		mag *= rhs.mag,
+		skl *= rhs.skl,
+		lck *= rhs.lck,
+		def *= rhs.def,
+		res *= rhs.res,
+		con *= rhs.con,
+		mov *= rhs.mov};
+	return prod;
 }
 
 feStats feStats::operator/(const feStats &rhs) const {
+	feStats sum = {
+		hp  /= rhs.hp,
+		str /= rhs.str,
+		mag /= rhs.mag,
+		skl /= rhs.skl,
+		lck /= rhs.lck,
+		def /= rhs.def,
+		res /= rhs.res,
+		con /= rhs.con,
+		mov /= rhs.mov};
+	return sum;
 }
 
 feStats &feStats::operator=(const feStats &rhs) {
+	this->hp  = rhs.hp;
+	this->str = rhs.str;
+	this->mag = rhs.mag;
+	this->skl = rhs.skl;
+	this->lck = rhs.lck;
+	this->def = rhs.def;
+	this->res = rhs.res;
+	this->con = rhs.con;
+	this->mov = rhs.mov;
+	return *this;
 }
 
 feStats &feStats::operator+=(const feStats &rhs) {
+	this->hp  += rhs.hp;
+	this->str += rhs.str;
+	this->mag += rhs.mag;
+	this->skl += rhs.skl;
+	this->lck += rhs.lck;
+	this->def += rhs.def;
+	this->res += rhs.res;
+	this->con += rhs.con;
+	this->mov += rhs.mov;
+	return *this;
 }
 
 feStats &feStats::operator-=(const feStats &rhs) {
+	this->hp  -= rhs.hp;
+	this->str -= rhs.str;
+	this->mag -= rhs.mag;
+	this->skl -= rhs.skl;
+	this->lck -= rhs.lck;
+	this->def -= rhs.def;
+	this->res -= rhs.res;
+	this->con -= rhs.con;
+	this->mov -= rhs.mov;
+	return *this;
 }
 
 feStats &feStats::operator*=(const feStats &rhs) {
+	this->hp  *= rhs.hp;
+	this->str *= rhs.str;
+	this->mag *= rhs.mag;
+	this->skl *= rhs.skl;
+	this->lck *= rhs.lck;
+	this->def *= rhs.def;
+	this->res *= rhs.res;
+	this->con *= rhs.con;
+	this->mov *= rhs.mov;
+	return *this;
 }
 
 feStats &feStats::operator/=(const feStats &rhs) {
+	this->hp  /= rhs.hp;
+	this->str /= rhs.str;
+	this->mag /= rhs.mag;
+	this->skl /= rhs.skl;
+	this->lck /= rhs.lck;
+	this->def /= rhs.def;
+	this->res /= rhs.res;
+	this->con /= rhs.con;
+	this->mov /= rhs.mov;
+	return *this;
 }
