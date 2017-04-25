@@ -32,7 +32,7 @@ feStats feStats::operator%(const feStats &rhs) const {
 }
 
 feStats feStats::operator+(const feStats &rhs) const {
-	feStats sum = {
+	feStats ret = {
 		hp  += rhs.hp,
 		str += rhs.str,
 		mag += rhs.mag,
@@ -42,11 +42,11 @@ feStats feStats::operator+(const feStats &rhs) const {
 		res += rhs.res,
 		con += rhs.con,
 		mov += rhs.mov};
-	return sum;
+	return ret;
 }
 
 feStats feStats::operator-(const feStats &rhs) const {
-	feStats diff = {
+	feStats ret = {
 		hp  -= rhs.hp,
 		str -= rhs.str,
 		mag -= rhs.mag,
@@ -56,11 +56,11 @@ feStats feStats::operator-(const feStats &rhs) const {
 		res -= rhs.res,
 		con -= rhs.con,
 		mov -= rhs.mov};
-	return diff;
+	return ret;
 }
 
 feStats feStats::operator*(const feStats &rhs) const {
-	feStats prod = {
+	feStats ret = {
 		hp  *= rhs.hp,
 		str *= rhs.str,
 		mag *= rhs.mag,
@@ -70,11 +70,11 @@ feStats feStats::operator*(const feStats &rhs) const {
 		res *= rhs.res,
 		con *= rhs.con,
 		mov *= rhs.mov};
-	return prod;
+	return ret;
 }
 
 feStats feStats::operator/(const feStats &rhs) const {
-	feStats quot = {
+	feStats ret = {
 		hp  /= rhs.hp,
 		str /= rhs.str,
 		mag /= rhs.mag,
@@ -84,7 +84,7 @@ feStats feStats::operator/(const feStats &rhs) const {
 		res /= rhs.res,
 		con /= rhs.con,
 		mov /= rhs.mov};
-	return quot;
+	return ret;
 }
 
 feStats &feStats::operator=(const feStats &rhs) {
