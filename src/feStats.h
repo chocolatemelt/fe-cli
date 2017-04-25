@@ -14,8 +14,6 @@ struct feStats {
 	int con;
 	int mov;
 
-	~feStats() {}
-
 	bool operator==(const feStats &) const;
 
 	feStats operator%(const feStats &) const;
