@@ -16,12 +16,13 @@ find_package(Curses REQUIRED)
 
 # include directories
 include_directories(
-	${CURSES_INCLUDE_DIR},
+	${CURSES_INCLUDE_DIR}
 	${PROJECT_SOURCE_DIR}/src
+	${PROJECT_SOURCE_DIR}/src/lib
 )
 
 set(FE-CLI_SOURCES
-        src/feBuff.cpp
+	src/feBuff.cpp
 	src/feCharacter.cpp
 	src/feClass.cpp
 	src/feConsumable.cpp
@@ -43,9 +44,14 @@ set(FE-CLI_SOURCES
 	src/feWeaponRank.cpp
 )
 
+set(FE-TEST_SOURCES
+	tests/character.cpp
+	tests/tests.cpp
+)
+
 # create executables!
 add_executable(fe-cli ${PROJECT_SOURCE_DIR}/src/main.cpp ${FE-CLI_SOURCES})
-add_executable(fe-test ${PROJECT_SOURCE_DIR}/src/tests.cpp ${FE-CLI_SOURCES})
+add_executable(fe-test ${FE-TEST_SOURCES} ${FE-CLI_SOURCES})
 target_link_libraries(fe-cli ${CURSES_LIBRARIES} menu)
 target_link_libraries(fe-test ${CURSES_LIBRARIES})
 
