@@ -20,8 +20,9 @@ feCharacter::feCharacter(std::string id, std::string n, bool g, char l, char a, 
  * @param
  *     buff - the applied buff
  */
-void feCharacter::buff(feBuff buff) {
-	// TODO: impl
+void feCharacter::buff(feBuff b) {
+	std::shared_ptr<feBuff> buff = std::make_shared<feBuff>(b);
+	buffs.push_back(buff);
 }
 
 /**
