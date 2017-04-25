@@ -45,7 +45,7 @@ class feCharacter {
 		feStats cap;        // capped maximum stat modifiers
 		feStats bonus;      // bonus stats given to the unit
 		feStats growth;     // stat growths of the unit
-		std::vector<std::shared_ptr<feBuff>> buff; // bonuses applied to this character
+		std::vector<std::shared_ptr<feBuff>> buffs; // bonuses applied to this character
 		int current_experience; // current amount of experience till leveling up
 
 		/**
