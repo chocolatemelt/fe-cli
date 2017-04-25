@@ -1,4 +1,4 @@
-#include <feWeapon.h>
+#include "feWeapon.h"
 
 feWeapon::feWeapon() {
 	might = 0;
