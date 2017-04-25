@@ -105,5 +105,5 @@ void feCharacter::resetStats() {
 void feCharacter::tick() {
 	// remove_if moves elements to be deleted to the back, pointing towards the first one
 	// erase removes the subsection from remove_if to the end, which should be all finished ticks
-	buffs.erase(std::remove_if(buffs.begin(), buffs.end(), [](const feBuff &b) { return b.tick(); }), buffs.end());
+	buffs.erase(std::remove_if(buffs.begin(), buffs.end(), [](std::shared_ptr<feBuff> b) { return b->tick(); }), buffs.end());
 }
