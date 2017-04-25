@@ -1,6 +1,7 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
+#include <algorithm>
 #include <memory>
 #include <sstream>
 #include <string>
@@ -96,9 +97,10 @@ class feCharacter {
 		void buff(feBuff);
 		void equip(feWeapon *);
 		void initStats(feClass c);
+		std::string printInfo();
 		void recalculateStats();
 		void resetStats();
-		std::string printInfo();
+		void tick();
 
 		feStats getBaseStats() const { return base; }
 		feStats getCapStats() const { return cap; }

@@ -55,24 +55,6 @@ void feCharacter::initStats(feClass c) {
 }
 
 /**
- * void recalculateStats()
- * Recalculates all stats, including secondary combat stats.
- */
-void feCharacter::recalculateStats() {
-	// TODO: update the current stats of the character
-}
-
-/**
- * void resetStats()
- * Resets stats to default state; useful to run as a post-map hook.
- */
-void feCharacter::resetStats() {
-	bonus = feStats::ZERO;
-	buffs.clear();
-	// TODO: update current stats of the character
-}
-
-/**
  * string printStats()
  * Simple printout of character information.
  */
@@ -93,4 +75,36 @@ std::string feCharacter::printInfo() {
 	if (gender == 1) g = "male";
 
 	return id + name + g + loy;
+}
+
+
+/**
+ * void recalculateStats()
+ * Recalculates all stats, including secondary combat stats.
+ */
+void feCharacter::recalculateStats() {
+	// TODO: update the current stats of the character
+}
+
+/**
+ * void resetStats()
+ * Resets stats to default state; useful to run as a post-map hook.
+ */
+void feCharacter::resetStats() {
+	bonus = feStats::ZERO;
+	buffs.clear();
+	// TODO: update current stats of the character
+}
+
+/**
+ * void tick()
+ * Ticks by one for all time-related buffs.
+ * @modifies
+ *     buffs - decrements them by one tick (if applicable)
+ */
+void feCharacter::tick() {
+	std::vector<std::shared_ptr<feBuff>>::iterator itr = buffs.begin();
+	while(itr != buffs.end()) {
+		// TODO: remove_if
+	}
 }
