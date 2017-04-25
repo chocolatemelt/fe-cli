@@ -74,7 +74,7 @@ feStats feStats::operator*(const feStats &rhs) const {
 }
 
 feStats feStats::operator/(const feStats &rhs) const {
-	feStats sum = {
+	feStats quot = {
 		hp  /= rhs.hp,
 		str /= rhs.str,
 		mag /= rhs.mag,
@@ -84,7 +84,7 @@ feStats feStats::operator/(const feStats &rhs) const {
 		res /= rhs.res,
 		con /= rhs.con,
 		mov /= rhs.mov};
-	return sum;
+	return quot;
 }
 
 feStats &feStats::operator=(const feStats &rhs) {
