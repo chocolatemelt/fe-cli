@@ -14,6 +14,17 @@ feCharacter::feCharacter(std::string id, std::string n, bool g, char l, char a, 
 	}
 
 /**
+ * void equip(feWeapon *weapon)
+ * Equips a new weapon, with the precondition that the weapon is already in the bag of the character.
+ * Naturally, you should not be able to equip from a bag, trade, other character, or directly from drops.
+ * @param
+ *     weapon - equippable item in bag
+ */
+void equip(feWeapon *weapon) {
+	// TODO: impl
+}
+
+/**
  * void initStats(feClass c)
  * Initializes stats (does nothing for stats otherwise).
  * @param
@@ -45,6 +56,7 @@ void feCharacter::recalculateStats() {
  */
 void feCharacter::resetStats() {
 	bonus = feStats::ZERO;
+	buffs.clear();
 	// TODO: update current stats of the character
 }
 
