@@ -7,6 +7,9 @@ struct feBuff {
 	feStats bonus;
 	feStats reduction;
 
+	feBuff(const feBuff &);
+	~feBuff() {}
+
 	bool tick();
 	bool invariant();
 };

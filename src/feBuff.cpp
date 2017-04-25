@@ -1,5 +1,10 @@
 #include "feBuff.h"
 
+feBuff::feBuff(const feBuff &rhs) {
+	bonus = rhs.bonus;
+	reduction = rhs.reduction;
+}
+
 /**
  * void tick()
  * One 'tick', or 'turn', for this bonus, which should ideally
