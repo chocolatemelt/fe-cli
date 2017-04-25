@@ -1,6 +1,7 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
+#include <memory>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -44,8 +45,8 @@ class feCharacter {
 		feStats cap;        // capped maximum stat modifiers
 		feStats bonus;      // bonus stats given to the unit
 		feStats growth;     // stat growths of the unit
-		std::vector<feBuff *> buff; // bonuses applied to this character
-		int current_experience;       // current amount of experience till leveling up
+		std::vector<std::shared_ptr<feBuff>> buff; // bonuses applied to this character
+		int current_experience; // current amount of experience till leveling up
 
 		/**
 		 * COMBAT STATS
