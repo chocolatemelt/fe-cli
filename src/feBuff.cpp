@@ -19,4 +19,5 @@ bool feBuff::tick() {
  * @returns true if invariant is fulfilled, false otherwise
  */
 bool feBuff::invariant() {
+	return (bonus % reduction) == feStats::ZERO;
 }

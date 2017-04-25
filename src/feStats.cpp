@@ -16,7 +16,19 @@ bool feStats::operator==(const feStats &rhs) const {
 }
 
 feStats feStats::operator%(const feStats &rhs) const {
-	feStats ret;
+	feStats ret = {
+		hp % rhs.hp,
+	  str % rhs.str,
+	  mag % rhs.mag,
+	  skl % rhs.skl,
+	  spd % rhs.spd,
+	  lck % rhs.lck,
+	  def % rhs.def,
+	  res % rhs.res,
+	  con % rhs.con,
+	  mov % rhs.mov
+	};
+	return ret;
 }
 
 feStats feStats::operator+(const feStats &rhs) const {
