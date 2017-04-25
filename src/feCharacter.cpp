@@ -100,11 +100,10 @@ void feCharacter::resetStats() {
  * void tick()
  * Ticks by one for all time-related buffs.
  * @modifies
- *     buffs - decrements them by one tick (if applicable)
+ *     buffs - decrements them by one tick (if applicable) and deletes them at 0
  */
 void feCharacter::tick() {
-	std::vector<std::shared_ptr<feBuff>>::iterator itr = buffs.begin();
-	while(itr != buffs.end()) {
-		// TODO: remove_if
-	}
+	// remove_if moves elements to be deleted to the back, pointing towards the first one
+	// erase removes the subsection from remove_if to the end, which should be all finished ticks
+	buffs.erase(std::remove_if(buffs.begin(), buffs.end(), [](const feBuff &b) { return b.tick(); }), buffs.end());
 }
