@@ -93,6 +93,7 @@ class feCharacter {
 	public:
 		feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j);
 
+		void buff(feBuff);
 		void equip(feWeapon *);
 		void initStats(feClass c);
 		void recalculateStats();

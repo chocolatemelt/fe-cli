@@ -2,16 +2,27 @@
 
 feCharacter::feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j)
 	: weaponRank(j) {
-		uniqID = id;
-		name = n;
-		gender = g;
-		loyalty = l;
-		affinity = a;
-		job = j;
+	uniqID = id;
+	name = n;
+	gender = g;
+	loyalty = l;
+	affinity = a;
+	job = j;
 
-		/* initialize stats */
-		initStats(j);
-	}
+	/* initialize stats */
+	initStats(j);
+}
+
+/**
+ * void buff(feBuff buff)
+ * Creates a new buff as a smart pointer and adds it to the buff vector.
+ * Note that buffs refer to both buffs AND debuffs.
+ * @param
+ *     buff - the applied buff
+ */
+void feCharacter::buff(feBuff buff) {
+	// TODO: impl
+}
 
 /**
  * void equip(feWeapon *weapon)
@@ -20,7 +31,7 @@ feCharacter::feCharacter(std::string id, std::string n, bool g, char l, char a, 
  * @param
  *     weapon - equippable item in bag
  */
-void equip(feWeapon *weapon) {
+void feCharacter::equip(feWeapon *weapon) {
 	// TODO: impl
 }
 
