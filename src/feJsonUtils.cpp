@@ -39,5 +39,10 @@ json feJsonUtils::exportClass(feClass cls) {
 	jsonClass["weaponType"] = cls.getWeaponTypes();
 	jsonClass["promotion"] = cls.getPromotions();
 
+	std::unordered_map<int, feSkill>::iterator skilliterator;
+	for (skilliterator = cls.getSkills().begin(); skilliterator != cls.getSkills().end(); ++skilliterator) {
+		jsonClass[skilliterator->second.getName()] = {skilliterator->first};
+	}
+
 	return jsonClass;
 }
