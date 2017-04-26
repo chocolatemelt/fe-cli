@@ -40,7 +40,7 @@ TEST_CASE("stats", "[feStats]") {
 
 	SECTION("flat assign") {
 		feStats1.flatassign(0);
-		CHECK(feStats1 == feStats2);
+		CHECK(feStats1 == feStats::ZERO);
 	}
 
 	SECTION("assignment check") {
@@ -67,10 +67,10 @@ TEST_CASE("stats", "[feStats]") {
 
 	SECTION("multiplication check") {
 		feStats feStats3 = feStats1 * feStats2;
-		CHECK(feStats3 == feStats2);
+		CHECK(feStats3 == feStats::ZERO);
 
 		feStats1 *= feStats3;
-		CHECK(feStats1 == feStats2);
+		CHECK(feStats1 == feStats::ZERO);
 	}
 
 	SECTION("subtraction check") {
@@ -87,13 +87,13 @@ TEST_CASE("stats", "[feStats]") {
 		CHECK(feStats4.def == -3);
 		CHECK(feStats4.res == -2);
 		CHECK(feStats4.con == -1);
-		CHECK(feStats4.mov == 0);
+		CHECK(feStats4.mov ==  0);
 
 		feStats1 -= feStats2;
 		CHECK(feStats1 == feStats3);
 
 		feStats1 -= feStats1;
-		CHECK(feStats1 == feStats2);
+		CHECK(feStats1 == feStats::ZERO);
 	}
 
 	SECTION("division") {
@@ -106,9 +106,8 @@ TEST_CASE("stats", "[feStats]") {
 		feStats3 /= feStats2;
 		CHECK(feStats3 == feStats1);
 
-		feStats2.flatassign(1);
-		feStats1 = feStats1 / feStats1;
-		CHECK(feStats1 == feStats2);
+		feStats1 = feStats1 / feStats::ZERO;
+		CHECK(feStats1 == feStats::ZERO);
 	}
 
 	SECTION("modulus") {
