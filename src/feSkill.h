@@ -7,6 +7,7 @@ class feSkill {
 	private:
 		std::string name;
 	public:
+		std::string getName();
 		static feSkill *get(std::string skill);
 };
 
