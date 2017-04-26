@@ -18,3 +18,7 @@ std::vector<std::string> feClass::getWeaponTypes() const
 std::vector<std::string> feClass::getPromotions() const {
 	return (promotions);
 }
+
+std::unordered_map<int, feSkill> feClass::getSkills() const {
+	return (classSkills);
+}
