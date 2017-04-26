@@ -29,6 +29,7 @@ class feClass {
 		std::string getClassName() { return name; }
 		std::vector<std::string> getWeaponTypes() const;
 		std::vector<std::string> getPromotions() const;
+		std::unordered_map<int, feSkill> getSkills() const;
 		feStats getBaseStats() { return base; }
 		feStats getCapStats() { return cap; }
 		feStats getGrowthStats() { return growth; }
