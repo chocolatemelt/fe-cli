@@ -3,7 +3,7 @@
 #include "catch.hpp"
 #include "feStats.h"
 
-TEST_CASE("stats", "[feStats]") {
+TEST_CASE("feStats operation checks", "[feStats]") {
 	feStats feStats1 = feStats::ZERO;
 	feStats feStats2 = feStats::ZERO;
 
