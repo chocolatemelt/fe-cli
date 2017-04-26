@@ -45,9 +45,22 @@ set(FE-CLI_SOURCES
 )
 
 set(FE-TEST_SOURCES
+	tests/buff.cpp
 	tests/character.cpp
+	tests/class.cpp
+	tests/item.cpp
+	tests/jsonUtils.cpp
+	tests/map.cpp
+	tests/mechanics.cpp
+	tests/roster.cpp
+	tests/skill.cpp
+	tests/support.cpp
 	tests/stats.cpp
 	tests/tests.cpp
+	tests/tile.cpp
+	tests/utils.cpp
+	tests/vendor.cpp
+	tests/weapon.cpp
 )
 
 # create executables!
