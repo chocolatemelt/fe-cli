@@ -46,6 +46,7 @@ set(FE-CLI_SOURCES
 
 set(FE-TEST_SOURCES
 	tests/character.cpp
+	tests/stats.cpp
 	tests/tests.cpp
 )
 
