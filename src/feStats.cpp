@@ -2,6 +2,19 @@
 
 const feStats feStats::ZERO = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
+void feStats::flatassign(int value) {
+	this->hp  = value;
+	this->str = value;
+	this->mag = value;
+	this->skl = value;
+	this->spd = value;
+	this->lck = value;
+	this->def = value;
+	this->res = value;
+	this->con = value;
+	this->mov = value;
+}
+
 bool feStats::operator==(const feStats &rhs) const {
 	return (hp == rhs.hp
 			&& str == rhs.str
@@ -92,10 +105,15 @@ feStats feStats::operator/(const feStats &rhs) const {
 }
 
 feStats &feStats::operator=(const feStats &rhs) {
+	if (this == &rhs) {
+		return *this;
+	}
+
 	this->hp  = rhs.hp;
 	this->str = rhs.str;
 	this->mag = rhs.mag;
 	this->skl = rhs.skl;
+	this->spd = rhs.spd;
 	this->lck = rhs.lck;
 	this->def = rhs.def;
 	this->res = rhs.res;
@@ -109,6 +127,7 @@ feStats &feStats::operator+=(const feStats &rhs) {
 	this->str += rhs.str;
 	this->mag += rhs.mag;
 	this->skl += rhs.skl;
+	this->spd += rhs.spd;
 	this->lck += rhs.lck;
 	this->def += rhs.def;
 	this->res += rhs.res;
@@ -122,6 +141,7 @@ feStats &feStats::operator-=(const feStats &rhs) {
 	this->str -= rhs.str;
 	this->mag -= rhs.mag;
 	this->skl -= rhs.skl;
+	this->spd -= rhs.spd;
 	this->lck -= rhs.lck;
 	this->def -= rhs.def;
 	this->res -= rhs.res;
@@ -135,6 +155,7 @@ feStats &feStats::operator*=(const feStats &rhs) {
 	this->str *= rhs.str;
 	this->mag *= rhs.mag;
 	this->skl *= rhs.skl;
+	this->spd *= rhs.spd;
 	this->lck *= rhs.lck;
 	this->def *= rhs.def;
 	this->res *= rhs.res;
@@ -148,6 +169,7 @@ feStats &feStats::operator/=(const feStats &rhs) {
 	this->str /= rhs.str;
 	this->mag /= rhs.mag;
 	this->skl /= rhs.skl;
+	this->spd /= rhs.spd;
 	this->lck /= rhs.lck;
 	this->def /= rhs.def;
 	this->res /= rhs.res;
