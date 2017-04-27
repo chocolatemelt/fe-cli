@@ -22,6 +22,11 @@ class feWeapon : public feItem  {
 		int getMight() const { return might; }
 		int isPhysical() const { return physical; }
 		std::string getType() const { return type; }
+
+		// TODO: implement these virtual methods
+		std::string check() { return ""; }
+		void print() {}
+		void use() {}
 };
 
 #endif
