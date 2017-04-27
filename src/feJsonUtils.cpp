@@ -6,7 +6,7 @@
 
 #include "feJsonUtils.h"
 
-std::vector<int> stattovector(feStats stats) {
+std::vector<int> statToVector(feStats stats) {
 	std::vector<int> ret;
 	ret.push_back(stats.hp);
 	ret.push_back(stats.str);
@@ -18,7 +18,6 @@ std::vector<int> stattovector(feStats stats) {
 	ret.push_back(stats.res);
 	ret.push_back(stats.con);
 	ret.push_back(stats.mov);
-
 	return ret;
 }
 
@@ -27,21 +26,21 @@ json feJsonUtils::exportClass(feClass cls) {
 
 	jsonClass["name"] = cls.getClassName();
 
-	std::vector<int> basestat = stattovector(cls.getBaseStats());
+	std::vector<int> basestat = statToVector(cls.getBaseStats());
 	jsonClass["base"] = basestat;
 
-	std::vector<int> capstat = stattovector(cls.getCapStats());
+	std::vector<int> capstat = statToVector(cls.getCapStats());
 	jsonClass["cap"] = capstat;
 
-	std::vector<int> growthstat = stattovector(cls.getGrowthStats());
+	std::vector<int> growthstat = statToVector(cls.getGrowthStats());
 	jsonClass["growth"];
 
 	jsonClass["weaponType"] = cls.getWeaponTypes();
 	jsonClass["promotion"] = cls.getPromotions();
 
-	std::unordered_map<int, feSkill>::iterator skilliterator;
-	for (skilliterator = cls.getSkills().begin(); skilliterator != cls.getSkills().end(); ++skilliterator) {
-		jsonClass[skilliterator->second.getName()] = {skilliterator->first};
+	std::unordered_map<int, feSkill>::iterator skillItr;
+	for (skillItr = cls.getSkills().begin(); skillItr != cls.getSkills().end(); ++skillItr) {
+		jsonClass[skillItr->second.getName()] = {skillItr->first};
 	}
 
 	return jsonClass;
