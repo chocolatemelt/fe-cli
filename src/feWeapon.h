@@ -7,14 +7,16 @@
 
 class feWeapon : public feItem  {
 	private:
-		int might;
-		int hitrate;
 		int critical;
+		int hitrate;
+		int might;
 		bool physical;
+		std::string name;
 		std::string type;
 
 	public:
 		feWeapon();
+		feWeapon(int, int, int, bool, std::string, std::string);
 		int getCritical() const { return critical; }
 		int getHitrate() const { return hitrate; }
 		int getMight() const { return might; }
