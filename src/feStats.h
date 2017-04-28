@@ -14,7 +14,7 @@ struct feStats {
 	int con;
 	int mov;
 
-	void flatassign(int value);
+	void assign(int value);
 
 	bool operator==(const feStats &) const;
 
