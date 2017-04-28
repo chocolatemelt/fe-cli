@@ -39,7 +39,7 @@ TEST_CASE("feStats operation checks", "[feStats]") {
 	}
 
 	SECTION("flat assign") {
-		feStats1.flatassign(0);
+		feStats1.assign(0);
 		CHECK(feStats1 == feStats::ZERO);
 	}
 
@@ -97,7 +97,7 @@ TEST_CASE("feStats operation checks", "[feStats]") {
 	}
 
 	SECTION("division") {
-		feStats2.flatassign(2);
+		feStats2.assign(2);
 		feStats feStats3 = feStats1 * feStats2;
 
 		feStats feStats4 = feStats3 / feStats2;
@@ -111,9 +111,9 @@ TEST_CASE("feStats operation checks", "[feStats]") {
 	}
 
 	SECTION("modulus") {
-		feStats2.flatassign(2);
+		feStats2.assign(2);
 		feStats feStats3 = feStats1 * feStats2;
-		feStats1.flatassign(1);
+		feStats1.assign(1);
 		feStats3 += feStats1;
 
 		feStats feStats4 = feStats3 % feStats2;
