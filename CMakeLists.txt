@@ -35,6 +35,7 @@ set(FE-CLI_SOURCES
 	src/feSkillCombat.cpp
 	src/feSkillMap.cpp
 	src/feSkillStat.cpp
+	src/feSecondaryStats.cpp
 	src/feStats.cpp
 	src/feSupport.cpp
 	src/feTile.cpp
