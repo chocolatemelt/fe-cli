@@ -19,5 +19,7 @@ TEST_CASE("RNG correctly outputs 0-99", "[feUtils]") {
 		std::cout << a << " ";
 		if(a >= 0 && a <= 99) testVector.push_back(a);
 	}
+	std::cout << std::endl;
+
 	REQUIRE(testVector.size() == 10000);
 }
