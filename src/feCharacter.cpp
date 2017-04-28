@@ -26,14 +26,29 @@ void feCharacter::buff(feBuff b) {
 }
 
 /**
- * void equip(feWeapon *weapon)
+ * bool equip(std::shared_ptr<feItem> weapon)
  * Equips a new weapon, with the precondition that the weapon is already in the bag of the character.
  * Naturally, you should not be able to equip from a bag, trade, other character, or directly from drops.
  * @param
  *     weapon - equippable item in bag
+ * @returns true if successful, false otherwise
  */
-void feCharacter::equip(feWeapon *weapon) {
+bool feCharacter::equip(std::shared_ptr<feItem> weapon) {
 	// TODO: impl
+}
+
+/**
+ * bool give(std::shared_ptr<feItem> item)
+ * Adds a new item to the bag. Automatically removed (and ideally, cleaned up) upon expiring.
+ * Fails if attempting to add more than 5 items.
+ * @param
+ *     item - self explanatory
+ * @returns true if successful, false otherwise
+ */
+bool feCharacter::give(std::shared_ptr<feItem> item) {
+	if(bag.size() > 5) return false;
+	bag.push_back(item);
+	return true;
 }
 
 /**

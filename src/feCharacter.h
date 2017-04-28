@@ -11,6 +11,7 @@
 #include "feClass.h"
 #include "feItem.h"
 #include "feSkill.h"
+#include "feSecondaryStats.h"
 #include "feStats.h"
 #include "feSupport.h"
 #include "feWeapon.h"
@@ -54,10 +55,8 @@ class feCharacter {
 		 * These are secondary stats modified by current stats and weapons.
 		 * These are the bases used in many of the combat calculations used.
 		 */
-		int attack;
-		int avoid;
-		int critical;
-		int hitrate;
+		feSecondaryStats secondaryBase;
+		feSecondaryStats secondaryBonus;
 
 		/**
 		 * SKILLS
@@ -76,7 +75,7 @@ class feCharacter {
 		 * Note that convoy items are stored in the feRoster object, and
 		 * not on any characters.
 		 */
-		std::vector<feItem *> bag;
+		std::vector<std::shared_ptr<feItem>> bag;
 		feItem *equipped;
 
 		/**
@@ -95,7 +94,8 @@ class feCharacter {
 		feCharacter(std::string id, std::string n, bool g, char l, char a, feClass j);
 
 		void buff(feBuff);
-		void equip(feWeapon *);
+		bool equip(std::shared_ptr<feItem>);
+		bool give(std::shared_ptr<feItem>);
 		void initStats(feClass c);
 		std::string printInfo();
 		void recalculateStats();
