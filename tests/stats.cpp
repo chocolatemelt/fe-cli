@@ -1,6 +1,11 @@
-/* test feStats class */
+/**
+ * tests/stats.cpp
+ * Generic tests for the primary and secondary stats classes.
+ */
 
 #include "catch.hpp"
+
+#include "feSecondaryStats.h"
 #include "feStats.h"
 
 TEST_CASE("feStats operation checks", "[feStats]") {
@@ -118,5 +123,96 @@ TEST_CASE("feStats operation checks", "[feStats]") {
 
 		feStats feStats4 = feStats3 % feStats2;
 		CHECK(feStats4 == feStats1);
+	}
+};
+
+TEST_CASE("feSecondaryStats operations", "[feStats]") {
+	feSecondaryStats feSecondaryStats1 = feSecondaryStats::ZERO;
+	feSecondaryStats feSecondaryStats2 = feSecondaryStats::ZERO;
+
+	feSecondaryStats1 = { 3, 2, 1, 0 };
+
+	SECTION("Defaults") {
+		CHECK(feSecondaryStats2.attack   == 0);
+		CHECK(feSecondaryStats2.avoid    == 0);
+		CHECK(feSecondaryStats2.critical == 0);
+		CHECK(feSecondaryStats2.hitrate  == 0);
+	}
+
+	SECTION("Equality comparison") {
+		CHECK(feSecondaryStats::ZERO == feSecondaryStats2);
+		CHECK(feSecondaryStats2 == feSecondaryStats::ZERO);
+		CHECK(feSecondaryStats1 == feSecondaryStats1);
+		CHECK(feSecondaryStats2 == feSecondaryStats2);
+	}
+
+	SECTION("Flat assignment") {
+		feSecondaryStats1.assign(0);
+		CHECK(feSecondaryStats1 == feSecondaryStats::ZERO);
+	}
+
+	SECTION("Assignment") {
+		feSecondaryStats1 = feSecondaryStats2;
+		CHECK(feSecondaryStats1 == feSecondaryStats2);
+	}
+
+	SECTION("Addition") {
+		feSecondaryStats feSecondaryStats3 = feSecondaryStats1 + feSecondaryStats2;
+		CHECK(feSecondaryStats3 == feSecondaryStats1);
+
+		feSecondaryStats1 += feSecondaryStats3;
+		CHECK(feSecondaryStats1.attack   == 6);
+		CHECK(feSecondaryStats1.avoid    == 4);
+		CHECK(feSecondaryStats1.critical == 2);
+		CHECK(feSecondaryStats1.hitrate  == 0);
+	}
+
+	SECTION("Multiplication") {
+		feSecondaryStats feSecondaryStats3 = feSecondaryStats1 * feSecondaryStats2;
+		CHECK(feSecondaryStats3 == feSecondaryStats::ZERO);
+
+		feSecondaryStats1 *= feSecondaryStats3;
+		CHECK(feSecondaryStats1 == feSecondaryStats::ZERO);
+	}
+
+	SECTION("Subtraction") {
+		feSecondaryStats feSecondaryStats3 = feSecondaryStats1 - feSecondaryStats2;
+		feSecondaryStats feSecondaryStats4 = feSecondaryStats2 - feSecondaryStats1;
+
+		CHECK(feSecondaryStats3 == feSecondaryStats1);
+		CHECK(feSecondaryStats4.attack   == -3);
+		CHECK(feSecondaryStats4.avoid    == -2);
+		CHECK(feSecondaryStats4.critical == -1);
+		CHECK(feSecondaryStats4.hitrate  == 0);
+
+		feSecondaryStats1 -= feSecondaryStats2;
+		CHECK(feSecondaryStats1 == feSecondaryStats3);
+
+		feSecondaryStats1 -= feSecondaryStats1;
+		CHECK(feSecondaryStats1 == feSecondaryStats::ZERO);
+	}
+
+	SECTION("Division") {
+		feSecondaryStats2.assign(2);
+		feSecondaryStats feSecondaryStats3 = feSecondaryStats1 * feSecondaryStats2;
+
+		feSecondaryStats feSecondaryStats4 = feSecondaryStats3 / feSecondaryStats2;
+		CHECK(feSecondaryStats4 == feSecondaryStats1);
+
+		feSecondaryStats3 /= feSecondaryStats2;
+		CHECK(feSecondaryStats3 == feSecondaryStats1);
+
+		feSecondaryStats1 = feSecondaryStats1 / feSecondaryStats::ZERO;
+		CHECK(feSecondaryStats1 == feSecondaryStats::ZERO);
+	}
+
+	SECTION("Modulus") {
+		feSecondaryStats2.assign(2);
+		feSecondaryStats feSecondaryStats3 = feSecondaryStats1 * feSecondaryStats2;
+		feSecondaryStats1.assign(1);
+		feSecondaryStats3 += feSecondaryStats1;
+
+		feSecondaryStats feSecondaryStats4 = feSecondaryStats3 % feSecondaryStats2;
+		CHECK(feSecondaryStats4 == feSecondaryStats1);
 	}
 };
