@@ -76,7 +76,7 @@ class feCharacter {
 		 * not on any characters.
 		 */
 		std::vector<std::shared_ptr<feItem>> bag;
-		feItem *equipped;
+		std::shared_ptr<feItem> equipped;
 
 		/**
 		 * PAIRING

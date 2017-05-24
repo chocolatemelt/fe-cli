@@ -26,15 +26,16 @@ void feCharacter::buff(feBuff b) {
 }
 
 /**
- * bool equip(std::shared_ptr<feItem> weapon)
+ * void equip(std::shared_ptr<feItem> weapon)
  * Equips a new weapon, with the precondition that the weapon is already in the bag of the character.
  * Naturally, you should not be able to equip from a bag, trade, other character, or directly from drops.
+ * Note that as of SoV units can equip literally anything - meaning this is no longer feWeapon specific.
+ * Preconditions should be met and handled before this call is made; this simply changes the pointer.
  * @param
- *     weapon - equippable item in bag
- * @returns true if successful, false otherwise
+ *     item - equippable item in bag
  */
-bool feCharacter::equip(std::shared_ptr<feItem> weapon) {
-	// TODO: impl
+bool feCharacter::equip(std::shared_ptr<feItem> item) {
+	equipped = item;
 }
 
 /**
@@ -70,11 +71,11 @@ void feCharacter::initStats(feClass c) {
 }
 
 /**
- * string printStats()
+ * string printInfo()
  * Simple printout of character information.
+ * @returns character's one-liner print info
  */
 std::string feCharacter::printInfo() {
-
 	std::stringstream ss;
 	std::string id;
 	ss << uniqID;
@@ -99,6 +100,7 @@ std::string feCharacter::printInfo() {
  */
 void feCharacter::recalculateStats() {
 	// TODO: update the current stats of the character
+	secondaryBase = feSecondaryStats::ZERO;
 }
 
 /**
