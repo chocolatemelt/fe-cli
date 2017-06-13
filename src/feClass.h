@@ -24,6 +24,7 @@ class feClass {
 		void initializeNameStats(std::string baseClassData);
 
 	public:
+		static const feClass NONE;
 		feClass();
 		feClass(std::string baseClassData);
 		std::string getClassName() { return name; }

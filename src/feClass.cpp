@@ -1,5 +1,7 @@
 #include "feClass.h"
 
+const feClass feClass::NONE = { };
+
 feClass::feClass() {
 }
 
