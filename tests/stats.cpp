@@ -8,7 +8,7 @@
 #include "feSecondaryStats.h"
 #include "feStats.h"
 
-TEST_CASE("feStats operation checks", "[feStats]") {
+TEST_CASE("feStats operations", "[feStats]") {
 	feStats feStats1 = feStats::ZERO;
 	feStats feStats2 = feStats::ZERO;
 
