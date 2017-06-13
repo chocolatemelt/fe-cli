@@ -7,11 +7,12 @@
 
 #include "feCharacter.h"
 
-TEST_CASE("Character is constructed properly", "[feCharacter]") {
-	feClass c;
-	feCharacter test("Ma", "Marth", true, 'p', 'l', c);
-	REQUIRE(test.printInfo() == "MaMarthmalep");
-}
+TEST_CASE("feCharacter tests", "[feCharacter]") {
+	feCharacter marth("Ma", "Marth", true, 'p', 'l', feClass::NONE);
+	feCharacter lucina("Lu", "Lucina", false, 'e', 'l', feClass::NONE);
 
-TEST_CASE("Character can assign buffs and reflect stat changes", "[feCharacter]") {
+	SECTION("Construction") {
+		CHECK(marth.printInfo() == "MaMarthmalep");
+		CHECK(lucina.printInfo() == "LuLucinafemalee");
+	}
 }
